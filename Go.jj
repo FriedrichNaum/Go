@@ -33,6 +33,7 @@ public class Go {
                 case GoConstants.WHITESPACE:
                     // Ignore whitespace tokens
                     break;
+                
                 default:
                     System.out.println("UNKNOWN " + token.image);
                     break;
@@ -73,19 +74,35 @@ TOKEN :
                  "++" | "--" | ":=" | "..." |
                  "+" | "-" | "*" | "/" | "%" | "&" | "|" | "^" |
                  "!" | "<" | ">" | "=" >
-|   <INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
-|   <DECIMAL_LIT: "0" | (<DIGIT>) [["_"]<DECIMAL_DIGITS>]>
-|   <BINARY_LIT: "0" ("b" | "B") ["_"]<BINARY_DIGITS>>
-|   <OCTAL_LIT: "0"  ["o" | "O"] ["_"]<OCTAL_DIGITS>>
-|   <FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
-|   <DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"."[ <DECIMAL_DIGITS>][<DECIMAL_EXPONENT>] | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS>[<DECIMAL_EXPONENT>]>
-|   <DECIMAL_EXPONENT: ("e" | "E") ["+" | "-"] <DECIMAL_DIGITS>>
-|   <HEXA_FLOAT_LIT: "0" ("x" | "X") ["_"]<HEXA_MANTISSA><HEXA_EXPONENT>>
-|   <HEXA_MANTISSA: ["_"]<HEXA_DIGITS>"." [<HEXA_DIGITS>] | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>>
-|   <HEXA_EXPONENT: ("p" | "P")["+" | "-"]<DECIMAL_DIGITS>>
-|   <IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
+|   < INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
+|   < DECIMAL_LIT: "0" | (<DIGIT>) [["_"]<DECIMAL_DIGITS>]>
+|   < BINARY_LIT: "0" ("b" | "B") ["_"]<BINARY_DIGITS>>
+|   < OCTAL_LIT: "0"  ["o" | "O"] ["_"]<OCTAL_DIGITS>>
+|   < FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
+|   < DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"."[ <DECIMAL_DIGITS>][<DECIMAL_EXPONENT>] | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS>[<DECIMAL_EXPONENT>]>
+|   < DECIMAL_EXPONENT: ("e" | "E") ["+" | "-"] <DECIMAL_DIGITS>>
+|   < HEXA_FLOAT_LIT: "0" ("x" | "X") ["_"]<HEXA_MANTISSA><HEXA_EXPONENT>>
+|   < HEXA_MANTISSA: ["_"]<HEXA_DIGITS>"." [<HEXA_DIGITS>] | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>>
+|   < HEXA_EXPONENT: ("p" | "P")["+" | "-"]<DECIMAL_DIGITS>>
+|   < IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
 |   < DELIMITER: "{" | "}" | "(" | ")" | "[" | "]" | "," | ";" | "." >
 |   < STRING: "\"" (~["\""])* "\"" >
+|   < ARRAYTYPE: "[" <ARRAYLENGHT> "]" <ELEMENTTYPE>>
+|   < ARRAYLENGHT: <EXPRESSION>>
+|   < ELEMENTTYPE: <TYPE>>
+|   < SLICETYPE: "[" "]" <ELEMENTTYPE>>
+|   < STRUCTTYPE: "struct" "{" {<FIELDECL> ";" } "}">
+|   < FIELDECL: (<IDENTIFIERLIST> <TYPE> | <EMBEDDEDFIELD>) [<TAG>]>
+|   < EMBEDDEDFIELD: [ "*" ] <TYPENAME> [ <TYPEARGS> ] >
+|   < TAG: <STRINGLIT>>
+}
+
+TOKEN :
+{
+    < NEWLINE: "\u000A" >
+|   < UNICODE_CHAR: "\u0000" - "\u0009" | "\u000B" - "\uFFFF" >
+|   < UNICODE_LETTER: <UNICODE_LETTER_CODEPOINT> >
+|   < UNICODE_DIGIT: <UNICODE_DIGIT_CODEPOINT> >
 }
 
 TOKEN :
@@ -97,7 +114,11 @@ TOKEN :
     < #DECIMAL_DIGITS: <DIGIT>{["_"]}<DIGIT>>|
     < #BINARY_DIGITS: <BINARY>{["_"]}<BINARY>>|
     < #OCTAL_DIGITS: <OCTAL>{["_"]}<OCTAL>>|
-    < #HEXA_DIGITS: <HEXA>{["_"]}<HEXA>>
-|   < #LETTER: ["a"-"z", "A"-"Z", "_"] >
-
+    < #HEXA_DIGITS: <HEXA>{["_"]}<HEXA>> |
+    < #LETTER: ["a"-"z", "A"-"Z", "_"] > |
+    < #UNICODE_LETTER_CODEPOINT: ["\u0041"-"\u005A", "\u0061"-"\u007A"]> |
+    < #UNICODE_DIGIT_CODEPOINT: ["\u0030"-"\u0039"]> |
+    < #ESCAPED_CHAR: '\' ( "a" | "b" | "f" | "h" | "r" | "t" | "v" | '\' | "'" | '"')>
+    < #RAW_STRING_LIT: "'" { <UNICODE_CHAR> | <NEWLINE> } "'"> |
+    < #INTERPRETED_STRING_LIT: '"' {<UNI}
 }
