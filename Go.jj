@@ -1,0 +1,103 @@
+PARSER_BEGIN(Go)
+
+public class Go {
+    public static void main(String[] args) throws ParseException {
+        Go lexer = new Go(System.in);
+        Token token;
+        while ((token = lexer.getNextToken()).kind != GoConstants.EOF) {
+            switch (token.kind) {
+                case GoConstants.ID:
+                    System.out.println("ID " + token.image);
+                    break;
+                case GoConstants.NUM_DEC:
+                    System.out.println("NUM_DEC " + token.image);
+                    break;
+                case GoConstants.KEYWORD:
+                    System.out.println("KEYWORD " + token.image);
+                    break;
+                case GoConstants.OPERATOR:
+                    System.out.println("OPERATOR " + token.image);
+                    break;
+                case GoConstants.DELIMITER:
+                    System.out.println("DELIMITER " + token.image);
+                    break;
+                case GoConstants.STRING:
+                    System.out.println("STRING " + token.image);
+                    break;
+                case GoConstants.SINGLE_LINE_COMMENT:
+                    System.out.println("SINGLE_LINE_COMMENT " + token.image);
+                    break;
+                case GoConstants.MULTI_LINE_COMMENT:
+                    System.out.println("MULTI_LINE_COMMENT " + token.image);
+                    break;
+                case GoConstants.WHITESPACE:
+                    // Ignore whitespace tokens
+                    break;
+                default:
+                    System.out.println("UNKNOWN " + token.image);
+                    break;
+            }
+        }
+    }
+}
+
+PARSER_END(Go)
+
+SKIP :
+{
+    " "
+|   "\t"
+|   "\n"
+|   "\r"
+}
+
+MORE :
+{
+    < WHITESPACE: ( " " | "\t" | "\n" | "\r" )+ >
+|   < SINGLE_LINE_COMMENT: "//" (~["\n", "\r"])* ("\n" | "\r") >
+|   < MULTI_LINE_COMMENT: "/*" (~["*"])* "*" (~["/"] | "/" ~["*"])* "*" "/" >
+}
+
+TOKEN :
+{
+    < ID: <LETTER> (<LETTER> | <DIGIT> | "_")* >
+|   < NUM_DEC: <DIGIT> ("." <DIGIT>)? >
+|   < KEYWORD:
+        "break" | "default" | "func" | "interface" | "select" |
+        "case" | "defer" | "go" | "map" | "struct" |
+        "chan" | "else" | "goto" | "package" | "switch" |
+        "const" | "fallthrough" | "if" | "range" | "type" |
+        "continue" | "for" | "import" | "return" | "var"
+    >
+|   < OPERATOR: "==" | "!=" | "<=" | ">=" | "&&" | "||" | "<<" | ">>" | "&^" | "+=" | "-=" | "*=" | "/=" | "%=" | "&=" | "|=" | "^=" | "<<=" | ">>=" | "&^=" | "<-" |
+                 "++" | "--" | ":=" | "..." |
+                 "+" | "-" | "*" | "/" | "%" | "&" | "|" | "^" |
+                 "!" | "<" | ">" | "=" >
+|   <INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
+|   <DECIMAL_LIT: "0" | (<DIGIT>) [["_"]<DECIMAL_DIGITS>]>
+|   <BINARY_LIT: "0" ("b" | "B") ["_"]<BINARY_DIGITS>>
+|   <OCTAL_LIT: "0"  ["o" | "O"] ["_"]<OCTAL_DIGITS>>
+|   <FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
+|   <DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"."[ <DECIMAL_DIGITS>][<DECIMAL_EXPONENT>] | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS>[<DECIMAL_EXPONENT>]>
+|   <DECIMAL_EXPONENT: ("e" | "E") ["+" | "-"] <DECIMAL_DIGITS>>
+|   <HEXA_FLOAT_LIT: "0" ("x" | "X") ["_"]<HEXA_MANTISSA><HEXA_EXPONENT>>
+|   <HEXA_MANTISSA: ["_"]<HEXA_DIGITS>"." [<HEXA_DIGITS>] | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>>
+|   <HEXA_EXPONENT: ("p" | "P")["+" | "-"]<DECIMAL_DIGITS>>
+|   <IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
+|   < DELIMITER: "{" | "}" | "(" | ")" | "[" | "]" | "," | ";" | "." >
+|   < STRING: "\"" (~["\""])* "\"" >
+}
+
+TOKEN :
+{
+    < #DIGIT: ["0"-"9"] >|
+    < #BINARY: ["0"-"1"]>|
+    < #OCTAL: ["0"-"7"]>|
+    < #HEXA: ["0"-"9"| "A" - "F" | "a" - "f"]>|
+    < #DECIMAL_DIGITS: <DIGIT>{["_"]}<DIGIT>>|
+    < #BINARY_DIGITS: <BINARY>{["_"]}<BINARY>>|
+    < #OCTAL_DIGITS: <OCTAL>{["_"]}<OCTAL>>|
+    < #HEXA_DIGITS: <HEXA>{["_"]}<HEXA>>
+|   < #LETTER: ["a"-"z", "A"-"Z", "_"] >
+
+}
