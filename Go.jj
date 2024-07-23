@@ -27,6 +27,111 @@ public class Go {
                 case GoConstants.SINGLE_LINE_COMMENT:
                     System.out.println("SINGLE_LINE_COMMENT " + token.image);
                     break;
+                case GoConstants.INT_LIT:
+                    System.out.println("MINT_LIT " + token.image);
+                    break;
+                case GoConstants.FLOAT_LIT:
+                    System.out.println("MFLOAT_LIT " + token.image);
+                    break;
+                case GoConstants.HEXA_LIT:
+                    System.out.println("HEXA_LIT " + token.image);
+                    break;
+                case GoConstants.BINARY_LIT:
+                    System.out.println("BINARY_LIT " + token.image);
+                    break;
+                case GoConstants.DECIMAL_LIT:
+                    System.out.println("DECIMAL_LIT " + token.image);
+                    break;
+                case GoConstants.DECIMAL_FLOAT_LIT:
+                    System.out.println("DECIMAL_FLOAT_LIT " + token.image);
+                    break;
+                case GoConstants.HEXA_FLOAT_LIT:
+                    System.out.println("HEXA_FLOAT_LIT " + token.image);
+                    break;
+                case GoConstants. IMAGINARY_LIT:
+                    System.out.println(" IMAGINARY_LIT " + token.image);
+                    break;
+                case GoConstants.RUNE_LIT:
+                    System.out.println("RUNE_LIT " + token.image);
+                    break;
+                case GoConstants.STRINGLIT:
+                    System.out.println("STRINGLIT " + token.image);
+                    break;
+                case GoConstants.BASICLIT:
+                    System.out.println("BASICLIT " + token.image);
+                    break;
+                case GoConstants.OPERAND:
+                    System.out.println("OPERAND " + token.image);
+                    break;
+                case GoConstants.DECLARATION:
+                    System.out.println("DECLARATION " + token.image);
+                    break;
+                case GoConstants.FUNCTIONLIT:
+                    System.out.println("FUNCTIONLIT " + token.image);
+                    break;
+                case GoConstants.COMPOSITELIT:
+                    System.out.println("COMPOSITELIT " + token.image);
+                    break;
+                case GoConstants.FUNCTIONDECL:
+                    System.out.println("FUNCTIONDECL " + token.image);
+                    break;
+                case GoConstants.METHODDECL:
+                    System.out.println("METHODDECL " + token.image);
+                    break;
+                case GoConstants.QUALIFIEDIDENT:
+                    System.out.println("QUALIFIEDIDENT " + token.image);
+                    break;
+                case GoConstants.RECEIVERTYPE:
+                    System.out.println("RECEIVERTYPE " + token.image);
+                    break;
+                case GoConstants.PRIMARYEXPR:
+                    System.out.println("PRIMARYEXPR " + token.image);
+                    break;
+                case GoConstants.UNARYEXPR:
+                    System.out.println("UNARYEXPR " + token.image);
+                    break;
+                case GoConstants.BINARY_OP:
+                    System.out.println("BINARY_OP " + token.image);
+                    break;
+                case GoConstants.SIMPLESTMT:
+                    System.out.println("SIMPLESTMT " + token.image);
+                    break;
+                case GoConstants.STATEMENT:
+                    System.out.println("STATEMENT" + token.image);
+                    break;
+                case GoConstants.RETURNSTMT:
+                    System.out.println("RETURNSTMT " + token.image);
+                    break;
+                case GoConstants.BREAKSTMT:
+                    System.out.println("BREAKSTMT " + token.image);
+                    break;
+                case GoConstants.CONTINUESTMT:
+                    System.out.println("CONTINUESTMT " + token.image);
+                    break;
+                case GoConstants.GOTOSTMT:
+                    System.out.println("GOTOSTMT " + token.image);
+                    break;
+                case GoConstants.DEFERSTMT:
+                    System.out.println("DEFERSTMT " + token.image);
+                    break;
+                case GoConstants.SOURCEFILE:
+                    System.out.println("SOURCEFILE " + token.image);
+                    break;
+                case GoConstants.CHARACTER_LITERAL:
+                    System.out.println("CHARACTER_LITERAL " + token.image);
+                    break;
+                case GoConstants.TYPESPEC:
+                    System.out.println("TYPESPEC " + token.image);
+                    break;
+                case GoConstants.VARSPEC:
+                    System.out.println("VARSPEC " + token.image);
+                    break;
+                case GoConstants.TYPEPARAMLIST:
+                    System.out.println("TYPEPARAMLIST " + token.image);
+                    break;
+                case GoConstants.SINGLE_LINE_COMMENT:
+                    System.out.println("SINGLE_LINE_COMMENT " + token.image);
+                    break;
                 case GoConstants.MULTI_LINE_COMMENT:
                     System.out.println("MULTI_LINE_COMMENT " + token.image);
                     break;
@@ -75,165 +180,49 @@ TOKEN :
                  "+" | "-" | "*" | "/" | "%" | "&" | "|" | "^" |
                  "!" | "<" | ">" | "=" >
 |   < INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
-|   < DECIMAL_LIT: "0" | (<DIGIT>) [["_"]<DECIMAL_DIGITS>]>
+|   < DECIMAL_LIT: "0" | (<DIGIT>) "[" ["_"] <DECIMAL_DIGITS> "]" >
 |   < BINARY_LIT: "0" ("b" | "B") ["_"]<BINARY_DIGITS>>
-|   < OCTAL_LIT: "0"  ["o" | "O"] ["_"]<OCTAL_DIGITS>>
+|   < OCTAL_LIT: "0"  "[" "o" | "O" "]" ["_"]<OCTAL_DIGITS>>
 |   < FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
-|   < DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"."[ <DECIMAL_DIGITS>][<DECIMAL_EXPONENT>] | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS>[<DECIMAL_EXPONENT>]>
-|   < DECIMAL_EXPONENT: ("e" | "E") ["+" | "-"] <DECIMAL_DIGITS>>
+|   < DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"." "[" <DECIMAL_DIGITS> "]" "[" <DECIMAL_EXPONENT> "]" | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS> "[" <DECIMAL_EXPONENT> "]">
 |   < HEXA_FLOAT_LIT: "0" ("x" | "X") ["_"]<HEXA_MANTISSA><HEXA_EXPONENT>>
-|   < HEXA_MANTISSA: ["_"]<HEXA_DIGITS>"." [<HEXA_DIGITS>] | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>>
-|   < HEXA_EXPONENT: ("p" | "P")["+" | "-"]<DECIMAL_DIGITS>>
 |   < IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
 |   < DELIMITER: "{" | "}" | "(" | ")" | "[" | "]" | "," | ";" | "." >
 |   < STRING: "\"" (~["\""])* "\"" >
-|   < RUNE_LIT: "'" ( UNICODE_VALUE | BYTE_VALUE ) "'"> 
-|   < TYPE: <TYPENAME> [ <TYPEARGS> ] | <TYPELIT> | "(" <TYPE> ")">
-|   < TYPENAME: <IDENTIFIER> | <QUALIFIEDIDENT>>
-|   < TYPEARGS: "[" <TYPELIST> [","] "]">
-|   < TYPELIST: <TYPE> {","<TYPE>}>
+|   < RUNE_LIT: "'" ( <UNICODE_VALUE> | <BYTE_VALUE> ) "'"> 
 |   < TYPELIT: <ARRAYTYPE> | <STRUCTTYPE> | <POINTERTYPE> | <FUNCTIONTYPE> | <INTERFACETYPE> | <SLICETYPE> | <MAPTYPE> | <CHANNELTYPE>>
-|   < ARRAYTYPE: "[" <ARRAYLENGHT> "]" <ELEMENTTYPE>>
-|   < ARRAYLENGHT: <EXPRESSION>>
-|   < ELEMENTTYPE: <TYPE>>
-|   < SLICETYPE: "[" "]" <ELEMENTTYPE>>
-|   < STRUCTTYPE: "struct" "{" {<FIELDECL> ";" } "}">
-|   < FIELDECL: (<IDENTIFIERLIST> <TYPE> | <EMBEDDEDFIELD>) [<TAG>]>
-|   < EMBEDDEDFIELD: [ "*" ] <TYPENAME> [ <TYPEARGS> ] >
-|   < TAG: <STRINGLIT>>
-|   < POINTERTYPE: "*" <BASETYPE>>
-|   < FUNCTIONTYPE: "func" <SIGNATURE>>
-|   < INTERFACETYPE: "interface" "{" { <INTERFACEELEM>";"} "}">
-|   < MAPTYPE: "map" "[" <KEYTYPE> "]" <ELEMENTTYPE>>
-|   < CHANNELTYPE: ( "chan" | "chan" "<-" | "<-" "chan" ) <ELEMNTTYPE>>
-|   < BLOCK: "{" <STATEMENT> "}">
 |   < DECLARATION: <CONSTDECL> | <TYPEDECL> | <VARDECL>>
-|   < CONSTDECL: "const" (<CONSTSPEC> | "("{<CONSTSPEC>";" } ")")>
-|   < TYPEDECL: "type" ( <TYPESPEC> | "(" {<TYPESPEC> ";" } ")" )>
-|   < ALIASDECL: <IDENTIFIER> | <TYPEDEF>>
-|   < TYPEDEF: <IDENTIFIER> [ <TYPEPARAMETERS> ] <TYPE>>
-|   < TYPEPARAMETERS: "[" <TYPEPARAMLIST> [","] "]">
-|   < TYPECONSTRAINT: <TYPEELEM>>
-|   < VARDECL: "var" (<VARSPEC> | "(" { <VARSPEC> ";"} ")" )>
-|   < FUNCTIONDECL: "func" <FUNCTIONNAME> [ <TYPEPARAMETERS>] <SIGNATURE> [<FUNCTIONBODY>]>
-|   < METHODDECL: "func" <RECEIVER> <METHODNAME> <SIGNATURE> [<FUNCTIONBODY>]>
-|   < OPERAND: <LITERAL> | <OPERANDNAME> [ <TYPEARGS> ] | "(" <EXPRESSION> ")">
-|   < LITERAL: <BASICLIT> | <COMPOSITELIT> | <FUNCTIONLIT>>
+|   < FUNCTIONDECL: "func" <FUNCTIONNAME> "[" <TYPEPARAMETERS> "]" <SIGNATURE> "[" <FUNCTIONBODY> "]">
+|   < METHODDECL: "func" <RECEIVER> <METHODNAME> <SIGNATURE> "[" <FUNCTIONBODY> "]">
+|   < OPERAND: <LITERAL> | <OPERANDNAME> "[" <TYPEARGS> "]" | "(" <EXPRESSION> ")">
 |   < BASICLIT: <INT_LIT> | <FLOAT_LIT> | <IMAGINARY_LIT> | <RUNE_LIT> | <STRINGLIT>>
-|   < OPERANDNAME: <IDENTIFIER> | <QUALIFIEDIDENT>>
-|   < QUALIFIEDIDENT: <PACKAGENAME> "." <IDENTIFIER>>
-|   < COMPOSITELIT: <LITERALTYPE> <LITERALVALUE>>
-|   < LITERALTYPE: <STRUCTTYPE> | <ARRAYTYPE> | "[" "..." "]" <ELEMENTTYPE> | <SLICETYPE> | <MAPTYPE> | <TYPENAME> [<TYPEARGS>]>
-|   < LITERALVALUE: "{" [ <ELEMENTLIST> [","] ] "}">
-|   < ELEMENTLIST: <KEYEDELEMENT> { "," <KEYEDELEMENT> }>
-|   < KEYEDELEMENT: [ <KEY> ":" ]<ELEMENT>>
-|   < KEY: <FIELDNAME> |  <EXPRESSION> | <LITERALVALUE>>
-|   < FIELDNAME: <IDENTIFIER>>
-|   < ELEMENT: <EXPRESSION> | <LITERALVALUE>>
-|   < FUNCTIONLIT: "func" <SIGNATURE> <FUNCTIONBODY>>
+|   < QUALIFIEDIDENT: <PACKAGENAME> "." <IDENTIFIER> >
+|   < COMPOSITELIT: <LITERALTYPE> <LITERALVALUE> >
+|   < FUNCTIONLIT: "func" <SIGNATURE><FUNCTIONBODY>>
 |   < PRIMARYEXPR: <OPERAND> | <CONVERSION> | <METHODEXPR> | <PRIMARYEXPR> <SELECTOR> | <PRIMARYEXPR> <INDEX> | <PRIMARYEXPR> <SLICE> | <PRIMARYEXPR> <TYPEASSERTION> | <PRIMARYEXPR> <ARGUMENTS>>
-|   < SELECTOR: "." <IDENTIFIER>>
-|   < INDEX: "[" <EXPRESSION> [","] "]">
-|   < SLICE: "[" [<EXPRESSION>] ":" [<EXPRESSION>] "]" | "[" [<EXPRESSION>] ":" <EXPRESSION> ":" <EXPRESSION> "]">
-|   < TYPEASSERTION: "." "(" <TYPE> ")">
-|   < ARGUMENTS: "(" [ ( <EXPRESSIONLIST> | <TYPE> ["," <EXPRESSIONLIST>]) ["..."][","]] ")">
-|   < METHODEXPR: <RECEVERTYPE> "." <METHODNAME>>
-|   < RECEVERTYPE: <TYPE>>
-|   < EXPRESSION: <UNARYEXPR> | <EXPRESSION> <BINARY_OP> <EXPRESSION>>
+|   < RECEIVERTYPE: <TYPE>>
 |   < UNARYEXPR: <PRIMARYEXPR> | <UNARY_OP> <UNARYEXPR>>
 |   < BINARY_OP: "||" | "&&" | <REL_OP> | <ADD_OP> | <MUL_OP>>
-|   < REL_OP: "==" | "!=" | "<" | "<=" | ">" | ">=">
-|   < ADD_OP: "+" | "-" | "|" | "^">
-|   < MUL_OP: "*" | "/" | "%" | "<<" | ">>" | "&" | "&^">
-|   < UNARY_OP: "+" | "-" | "!" | "^" | "*" | "&" | "<-">
 |   < CONVERSION: <TYPE> "(" <EXPRESSION> [","] ")">
 |   < STATEMENT: <DECLARATION> | <LABELEDSTMT> | <SIMPLESTMT> | <GOSTMT> | <FALLTHROWGHSTMT> | <BLOCK> | <IFSTMT> | <SWITCHSTMT> | <SELECTSTMT> | <FORSTMT> | <DEFERSTMT>>
-|   < SIMPLESTMT: <EMPTYSTMT> | <EXPRESSIONSTMT> | <SENDSTMT> | <INCDECSTMT> | ASSIGMENT> | <SHORTVARDECL>>
-|   < EMPTYSTMT: >
-|   < LABELEDSTMT: <LABEL> ":" <STATEMENT>>
-|   < LABEL: <IDENTIFIER>>
-|   < EXPRESSIONSTMT: <EXPRESSION>>
-|   < SENDSTMT: <CHANNEL> "<-" <EXPRESSION>>
-|   < CHANNEL: <EXPRESSION>>
-|   < INCDECSTMT: <EXPRESSION> ( "++" | "--")>
-|   < ASSIGMENT: <EXPRESSIONLIST> <ASSIGN_OP> <EXPRESSIONLIST>>
-|   < ASSIGN_OP: [ <ADD_OP> | <MUL_OP>]"=">
-|   < IFSTMT: "if" [<SIMPLESTMT ";"] <EXPRESSION> <BLOCK> ["else" ( <IFSTMT> | <BLOCK>)]>
-|   < SWITCHSTMT: <EXPRSWITCHSTMT> | <TYPESWITCHSTMT>>
-|   < EXPRSWITCHSTMT: "switch" [ <SIMPLESTMT> ";"] [<EXPRESSION>]"{" {<EXPRCASECLAUSE>} "}">
-|   < EXPRCASECLAUSE: <EXPRSWITCHCASE> ":" <STATEMENTLIST>>
-|   < EXPRSWITCHCASE: "case" <EXPRESSIONLIST> | "default">
-|   < TYPESWITCHSTMT: "switch" [<SIMPLESTMT> ";"] <TYPESWITCHGUARD> "{" {<TYPECASECLAUSE>} "}">
-|   < TYPESWITCHGUARD: [<IDENTIFIER> ":="] <PRIMARYEXPR> "." "(" "type" ")">
-|   < TYPECASECLAUSE: <TYPESWITCHCASE> ":" <STATEMENTLIST>>
-|   < TYPESWITCHCASE: "case" <TYPELIST> | "default">
-|   < FORSTMT: "for" [<CONDITION> | <FORCALUSE> | <RANGECLAUSE>] <BLOCK>>
-|   < CONDITION: <EXPRESSION>>
-|   < FORCALUSE: [<INITSTMT>] ";" [<CONDITION>] ";" [<POSTSTMT>]>
-|   < INITSTMT: <SIMPLESTMT>>
-|   < POSTSTMT: <SIMPLESTMT>>
-|   < RANGECLAUSE: [<EXPRESSIONLIST> "=" | <IDENTIFIERLIST ":="] "range" <EXPRESSION>>
-|   < GOSTMT: "go" <EXPRESSION>>
-|   < SELECTSTMT: "select" "{" {<COMMCLAUSE>} "}">
-|   < COMMCLAUSE = <COMMCASE> ":" <STATEMENTLIST>>
-|   < COMMCASE: "case" (<SENDSTMT> | <RECVSTMT>) | "default">
-|   < RECVSTMT: [<EXPRESSIONLIST> "=" | <IDENTIFIERLIST> ":="] <RECVEXPR>>
-|   < RECVEXPR: <EXPRESSION>>
-|   < RETURNSTMT: "return" [<EXPRESSIONLIST>]>
-|   < BREAKSTMT: "break" [<LABEL>]>
-|   < CONTINUESTMT: "continue" [<LABEL>]>
+|   < SIMPLESTMT: <EMPTYSTMT> | <EXPRESSIONSTMT> | <SENDSTMT> | <INCDECSTMT> | <ASSIGMENT> | <SHORTVARDECL>>
+|   < RETURNSTMT: "return" "["<EXPRESSIONLIST>"]">
+|   < BREAKSTMT: "break" "["<LABEL>"]">
+|   < CONTINUESTMT: "continue" "["<LABEL>"]">
 |   < GOTOSTMT: "goto" <LABEL>>
-|   < FALLTHROWGHSTMT: "fallthrough">
 |   < DEFERSTMT: "defer" <EXPRESSION>>
-|   < SOURCEFILE: <PACKAGECLAUSE> ";" { <IMPORTDECL> ";"} {<TOPLEVELDECL> ";"}>
-|   < PACKAGECLAUSE: "package" <PACKAGENAME>>
-|   < PACKAGENAME: <IDENTIFIER>>
-|   < IMPORTDECL: "import" (<IMPORTSPEC> | "(" {<IMPORTSPEC>} ")" )>
-|   < IMPORTSPEC: ["." | <PACKAGENAME> ] <IMPORTPATH>>
-|   < IMPORTPATH: <STRINGLIT>>
-|   < UNICODE_VALUE: <UNICODE_CHAR> | <LITLE_U_VALUE> | <BIG_U_VALUE> | <ESCAPED_CHAR> 
-|   < BYTE_VALUE: <OCTAL_BYTE_VALUE> | <HEX_BYTE_VALUE>> 
-|   < OCTAL_BYTE_VALUE: '\' <OCTAL> <OCTAL> <OCTAL>> 
-|   < HEX_BYTE_VALUE: '\' "x" <HEXA> <HEXA>> 
-|   < LITLE_U_VALUE: '\' "u" <HEXA> <HEXA> <HEXA> <HEXA>> 
-|   < BIG_U_VALUE: '\' "U" <HEXA> <HEXA> <HEXA> <HEXA> <HEXA>> 
-|   < UNICODE_LETTER_CODEPOINT: ["\u0041"-"\u005A", "\u0061"-"\u007A"]> 
-|   < UNICODE_DIGIT_CODEPOINT: ["\u0030"-"\u0039"]> 
-|   < ESCAPED_CHAR: '\' ( "a" | "b" | "f" | "h" | "r" | "t" | "v" | '\' | "'" | '"')>
-|   < RAW_STRING_LIT: "'" { <UNICODE_CHAR> | <NEWLINE> } "'"> 
+|   < SOURCEFILE: <PACKAGECLAUSE> ";" "{" <IMPORTDECL> ";" "}" "{"<TOPLEVELDECL> ";" "}">
+|   < CHARACTER_LITERAL: "'" ( <ESCAPED_CHAR> | ~["'", "\\"] ) "'" >
 |   < STRINGLIT: <RAW_STRING_LIT> | <INTERPRETED_STRING_LIT>>
-|   < INTERPRETED_STRING_LIT: '"' {<UNICODE_VALUE> | <BYTE_VALUE>} '"'> 
-|   < BASE_TYPE: <TYPE>> 
-|   < SIGNATURE: <PARAMETERS> [ <RESULT> ]> 
-|   < RESULT: <PARAMETERS> | <TYPE>>
-|   < PARAMETERS: "(" [ <PARAMETERLIST> [ "," ] ] ")" > 
-|   < PARAMETERLIST: <PARAMETERDECL> { "," <PARAMETERDECL> }> 
-|   < PARAMETERDECL: [ <IDENTIFIERLIST> ] ["..."] <TYPE>> 
-|   < UNDERLYINGTYPE: "~" <TYPE>> 
-|   < TYPETERM: <TYPE> | <UNDERLYINGTYPE>> 
-|   < TYPEELEM: <TYTERM> { "|" <TYPETERM> }> 
-|   < METHODNAME: <IDENTIFIER>> 
-|   < METHODELEM: <METHODNAME> <SIGNATURE>> 
-|   < INTERFACEELEMEN: <METHODNAME> | <TYPELEM>> 
-|   < KEYTYPE: <TYPE>> 
-|   < STATEMENTLIST: { <STATEMENT> ";" }> 
-|   < TOPLEVELDECL: <DECLARATION> | <FUNCTIONDECL> | <METHODDECL>>
-|   < EXPRESSIONLIST: <EXPRESSION> { "," <EXPRESSION>}> 
-|   < IDENTIFIERLIST: <IDENTIFIER> { "," <IDENTIFIER>}>>
-|   < CONSTSPEC: <IDENTIFIERLIST> [[<TYPE>] "=" <EXPRESSIONLIST>]> 
-|   < TYPEPARAMLIST: <TYPEPARAMDECL> {"," <TYPEPARAMDECL>}>
+|   < INTERPRETED_STRING_LIT: """ {<UNICODE_VALUE> | <BYTE_VALUE>} """> 
 |   < TYPESPEC: <ALIASDECL> | <TYPEDEF>> 
-|   < TYPEPARAMDECL: <IDENTIFIERLIST> <TYPECONSTRAINT>> 
-|   < VARSPEC: <IDENTIFIERLIST> ( <TYPE> [ "=" <EXPRESSIONLIST> ] | "=" <EXPRESSIONLIST>)>
-|   < FUNCTIONNAME: <IDENTIFIER> > 
-|   < FUNCTIONBODY: <BLOCK>> 
-|   < RECEIVER: <PARAMETERS>> 
+|   < VARSPEC: <IDENTIFIERLIST> ( <TYPE> "[" "=" <EXPRESSIONLIST> "]" | "=" <EXPRESSIONLIST>)>
 }
 
 TOKEN :
 {
-    < NEWLINE: "\u000A" >
-|   < UNICODE_CHAR: "\u0000" - "\u0009" | "\u000B" - "\uFFFF" >
+    < NEWLINE:"\n">
+|   < UNICODE_CHAR: "\u0000" | "\u0001" | "\u0002" | "..." | "\uFFFF" >
 |   < UNICODE_LETTER: <UNICODE_LETTER_CODEPOINT> >
 |   < UNICODE_DIGIT: <UNICODE_DIGIT_CODEPOINT> >
 }
@@ -243,10 +232,129 @@ TOKEN :
     < #DIGIT: ["0"-"9"] >|
     < #BINARY: ["0"-"1"]>|
     < #OCTAL: ["0"-"7"]>|
-    < #HEXA: ["0"-"9"| "A" - "F" | "a" - "f"]>|
-    < #DECIMAL_DIGITS: <DIGIT>{["_"]}<DIGIT>>|
-    < #BINARY_DIGITS: <BINARY>{["_"]}<BINARY>>|
-    < #OCTAL_DIGITS: <OCTAL>{["_"]}<OCTAL>>|
-    < #HEXA_DIGITS: <HEXA>{["_"]}<HEXA>> |
-    < #LETTER: ["a"-"z", "A"-"Z", "_"] > 
+    < #HEXA: ["0"-"9"] | ["A"-"F"] | ["a"-"f"]> |
+    < #DECIMAL_DIGITS: <DIGIT> "{" ["_"] "}"<DIGIT>>|
+    < #BINARY_DIGITS: <BINARY> "{" ["_"] "}"<BINARY>>|
+    < #OCTAL_DIGITS: <OCTAL>"{" ["_"] "}"<OCTAL>>|
+    < #HEXA_DIGITS: <HEXA>"{" ["_"] "}"<HEXA>> |
+    < #LETTER: ["a"-"z", "A"-"Z", "_"] > |
+    < #DECIMAL_EXPONENT: ("e" | "E") ("+" | "-") <DECIMAL_DIGITS>> |
+    < #HEXA_MANTISSA: ["_"]<HEXA_DIGITS> "."<HEXA_DIGITS> | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>> |
+    < #HEXA_EXPONENT: ("p" | "P")("+" | "-")<DECIMAL_DIGITS>> |
+    < #TYPE: <TYPENAME><TYPEARGS> | <TYPELIT> | "(" <TYPE> ")"> |
+    < #TYPENAME: <IDENTIFIER> | <QUALIFIEDIDENT>> |
+    < #TYPEARGS: "[" <TYPELIST> [","] "]"> |
+    < #TYPELIST: <TYPE> "{" ","<TYPE>"}"> |
+    < #ARRAYTYPE: "[" <ARRAYLENGHT> "]" <ELEMENTTYPE>> |
+    < #ARRAYLENGHT: <EXPRESSION>> |
+    < #ELEMENTTYPE: <TYPE>> |
+    < #SLICETYPE: "[" "]" <ELEMENTTYPE>> |
+    < #STRUCTTYPE: "struct" "{" "{"<FIELDECL> ";" "}" "}"> |
+    < #FIELDECL: (<IDENTIFIERLIST> <TYPE> | <EMBEDDEDFIELD>) <TAG>> |
+    < #EMBEDDEDFIELD: [ "*" ] <TYPENAME> <TYPEARGS> > |
+    < #POINTERTYPE: "*" <BASETYPE>> |
+    < #FUNCTIONTYPE: "func" <SIGNATURE>> |
+    < #INTERFACETYPE: "interface" "{" "{" <INTERFACEELEM>";""}" "}"> |
+    < #MAPTYPE: "map" "[" <KEYTYPE> "]" <ELEMENTTYPE>> |
+    < #CHANNELTYPE: ( "chan" | "chan" "<-" | "<-" "chan"  ) <ELEMNTTYPE>> |
+    < #LITERALTYPE: <STRUCTTYPE> | <ARRAYTYPE> | "[" "..." "]" <ELEMENTTYPE> | <SLICETYPE> | <MAPTYPE> | <TYPENAME> "[" <TYPEARGS> "]"> |
+    < #LITERALVALUE: "{" "[" <ELEMENTLIST> [","] "]" "}"> |
+    < #ELEMENTLIST: <KEYEDELEMENT> "{" "," <KEYEDELEMENT> "}"> |
+    < #KEYEDELEMENT: "[" <KEY> ":" "]" <ELEMENT>> |
+    < #KEY: <FIELDNAME> |  <EXPRESSION> | <LITERALVALUE>> |
+    < #FIELDNAME: <IDENTIFIER>> |
+    < #ELEMENT: <EXPRESSION> | <LITERALVALUE>> |
+    < #LITERAL: <BASICLIT> | <COMPOSITELIT> | <FUNCTIONLIT>> |
+    < #OPERANDNAME: <IDENTIFIER> | <QUALIFIEDIDENT>> |
+    < #TAG: <STRINGLIT>> |
+    < #BLOCK: "{" <STATEMENT> "}"> |
+    < #CONSTDECL: "const" (<CONSTSPEC> | "(" "{"<CONSTSPEC>";" "}" ")")> |
+    < #TYPEDECL: "type" "(" <TYPESPEC> | "(" "{"<TYPESPEC> ";" "}" ")" ")"> |
+    < #ALIASDECL: <IDENTIFIER> | <TYPEDEF>> |
+    < #VARDECL: "var" (<VARSPEC> | "(" "{" <VARSPEC> ";" "}" ")" )> |
+    < #SELECTOR: "." <IDENTIFIER>> |
+    < #INDEX: "[" <EXPRESSION> [","] "]"> |
+    < #SLICE: "[" <EXPRESSION> ":" <EXPRESSION> "]" | "[" <EXPRESSION> ":" <EXPRESSION> ":" <EXPRESSION> "]"> |
+    < #TYPEASSERTION: "." "(" <TYPE> ")"> |
+    < #ARGUMENTS: "(" "[" ( <EXPRESSIONLIST> | (<TYPE> "[" "," <EXPRESSIONLIST> "]")) ("[""...""]"[","]) "]" ")"> |
+    < #METHODEXPR: <RECEVERTYPE> "." <METHODNAME>> |
+    < #TYPEDEF: <IDENTIFIER> <TYPEPARAMETERS> <TYPE>> |
+    < #TYPEPARAMETERS: "[" <TYPEPARAMLIST> [","] "]"> |
+    < #TYPECONSTRAINT: <TYPEELEM>> |
+    < #EXPRESSION: <UNARYEXPR> | <EXPRESSION> <BINARY_OP> <EXPRESSION>> |
+    < #REL_OP: "==" | "!=" | "<" | "<=" | ">" | ">="> |
+    < #ADD_OP: "+" | "-" | "|" | "^"> |
+    < #MUL_OP: "*" | "/" | "%" | "<<" | ">>" | "&" | "&^"> |
+    < #UNARY_OP: "+" | "-" | "!" | "^" | "*" | "&" | "<-"> |
+    < #EMPTYSTMT: "(" ";" | ")"> |
+    < #LABELEDSTMT: <LABEL> ":" <STATEMENT>> |
+    < #LABEL: <IDENTIFIER>> |
+    < #EXPRESSIONSTMT: <EXPRESSION>> |
+    < #SENDSTMT: <CHANNEL> "<-" <EXPRESSION>> |
+    < #CHANNEL: <EXPRESSION>> |
+    < #INCDECSTMT: <EXPRESSION> "(" "++" | "--" ")"> |
+    < #ASSIGMENT: <EXPRESSIONLIST> <ASSIGN_OP> <EXPRESSIONLIST>> |
+    < #ASSIGN_OP: "[" <ADD_OP> | <MUL_OP> "]" "="> |
+    < #IFSTMT: "if" <SIMPLESTMT> ";" <EXPRESSION> <BLOCK> "[" "else" ( <IFSTMT> | <BLOCK>) "]"> |
+    < #SWITCHSTMT: <EXPRSWITCHSTMT> | <TYPESWITCHSTMT>> |
+    < #EXPRSWITCHSTMT: "switch" "[" <SIMPLESTMT> ";" "]" "[" <EXPRESSION> "]" "{" "{" <EXPRCASECLAUSE> "}" "}"> |
+    < #EXPRCASECLAUSE: <EXPRSWITCHCASE> ":" <STATEMENTLIST>> |
+    < #EXPRSWITCHCASE: "case" <EXPRESSIONLIST> | "default"> |
+    < #TYPESWITCHSTMT: "switch" "["<SIMPLESTMT> ";" "]" <TYPESWITCHGUARD> "{" <TYPECASECLAUSE> "}"> |
+    < #TYPESWITCHGUARD: "["<IDENTIFIER> ":=" "]" <PRIMARYEXPR> "." "(" "type" ")"> |
+    < #TYPECASECLAUSE: <TYPESWITCHCASE> ":" <STATEMENTLIST>> |
+    < #TYPESWITCHCASE: "case" <TYPELIST> | "default"> |
+    < #FORSTMT: "for" "["<CONDITION> | <FORCALUSE> | <RANGECLAUSE>"]" <BLOCK>> |
+    < #CONDITION: <EXPRESSION>> |
+    < #FORCALUSE: "["<INITSTMT>"]" ";" "["<CONDITION>"]" ";" "["<POSTSTMT>"]"> |
+    < #INITSTMT: <SIMPLESTMT>> |
+    < #POSTSTMT: <SIMPLESTMT>> |
+    < #RANGECLAUSE: "["<EXPRESSIONLIST> "=" | <IDENTIFIERLIST> ":=" "]" "range" <EXPRESSION>> |
+    < #GOSTMT: "go" <EXPRESSION>> |
+    < #SELECTSTMT: "select" "{" "{"<COMMCLAUSE>"}" "}"> |
+    < #COMMCLAUSE: <COMMCASE> ":" <STATEMENTLIST>> |
+    < #COMMCASE: "case" (<SENDSTMT> | <RECVSTMT>) | "default"> |
+    < #RECVSTMT: "["<EXPRESSIONLIST> "=" | <IDENTIFIERLIST> ":=""]" <RECVEXPR>> |
+    < #RECVEXPR: <EXPRESSION>> |
+    < #PACKAGECLAUSE: "package" <PACKAGENAME>> |
+    < #PACKAGENAME: <IDENTIFIER>> |
+    < #IMPORTDECL: "import" (<IMPORTSPEC> | "(" "{"<IMPORTSPEC>"}" ")" )> |
+    < #IMPORTSPEC: "[""." | <PACKAGENAME> "]" <IMPORTPATH>> |
+    < #IMPORTPATH: <STRINGLIT>> |
+    < #UNICODE_VALUE: <UNICODE_CHAR> | <LITLE_U_VALUE> | <BIG_U_VALUE> | <ESCAPED_CHAR>>  |
+    < #BYTE_VALUE: <OCTAL_BYTE_VALUE> | <HEX_BYTE_VALUE>> |
+    < #OCTAL_BYTE_VALUE: "\\" <OCTAL> <OCTAL> <OCTAL>> |
+    < #HEX_BYTE_VALUE: "\\" "x" <HEXA> <HEXA>> |
+    < #LITLE_U_VALUE: "\\" "u" <HEXA> <HEXA> <HEXA> <HEXA>>  |
+    < #BIG_U_VALUE: "\\" "U" <HEXA> <HEXA> <HEXA> <HEXA> <HEXA>>  |
+    < #UNICODE_LETTER_CODEPOINT: ["\u0041"-"\u005A", "\u0061"-"\u007A"]> |
+    < #UNICODE_DIGIT_CODEPOINT: ["\u0030"-"\u0039"]> |
+    < #RAW_STRING_LIT: "'" "{" <UNICODE_CHAR> | <NEWLINE> "}" "'"> |
+    < #FALLTHROWGHSTMT: "fallthrough"> |
+    < #SIGNATURE: <PARAMETERS> "[" <RESULT> "]"> |
+    < #RESULT: <PARAMETERS> | <TYPE>>|
+    < #PARAMETERS: "(" "[" <PARAMETERLIST> [ "," ] "]" ")" >  |
+    < #PARAMETERLIST: <PARAMETERDECL> "{" "," <PARAMETERDECL> "}"> | 
+    < #PARAMETERDECL: "[" <IDENTIFIERLIST> "]" "[""...""]" <TYPE>> |
+    < #UNDERLYINGTYPE: "~" <TYPE>> |
+    < #FUNCTIONNAME: <IDENTIFIER> > |
+    < #FUNCTIONBODY: <BLOCK>> |
+    < #RECEIVER: <PARAMETERS>> |
+    < #STATEMENTLIST: "{" <STATEMENT> ";" "}">  |
+    < #TOPLEVELDECL: <DECLARATION> | <FUNCTIONDECL> | <METHODDECL>> |
+    < #EXPRESSIONLIST: <EXPRESSION> "{" "," <EXPRESSION>"}">  |
+    < #IDENTIFIERLIST: <IDENTIFIER> "{" "," <IDENTIFIER>"}"> |
+    < #TYPEPARAMDECL: <IDENTIFIERLIST> <TYPECONSTRAINT>> |
+    < #BASE_TYPE: <TYPE>> |
+    < #TYPETERM: <TYPE> | <UNDERLYINGTYPE>>  |
+    < #TYPEELEM: <TYPETERM> "{" "|" <TYPETERM> "}"> |
+    < #METHODNAME: <IDENTIFIER>> |
+    < #METHODELEM: <METHODNAME> <SIGNATURE>> |
+    < #INTERFACEELEMEN: <METHODNAME> | <TYPELEM>> |
+    < #KEYTYPE: <TYPE>> |
+    < #CONSTSPEC: <IDENTIFIERLIST> "[""["<TYPE>"]" "=" <EXPRESSIONLIST>"]"> |
+    < #TYPEPARAMLIST: <TYPEPARAMDECL> "{""," <TYPEPARAMDECL>"}"> |
+    < #ESCAPED_CHAR: "\\" ("\" | "[""'""]" | "b" | "f" | "n" | "r" | "t" | "u" ( <HEX_DIGIT> <HEX_DIGIT> <HEX_DIGIT> <HEX_DIGIT> ) ) >
+
+
 }
