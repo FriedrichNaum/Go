@@ -6,15 +6,17 @@ public class Go {
         Token token;
         while ((token = lexer.getNextToken()).kind != GoConstants.EOF) {
             switch (token.kind) {
-                case GoConstants.ID:
-                    System.out.println("ID " + token.image);
+                case GoConstants.IDENTIFIER:
+                    System.out.println("IDENTIFIER " + token.image);
                     break;
                 case GoConstants.NUM_DEC:
                     System.out.println("NUM_DEC " + token.image);
                     break;
+                    /*
                 case GoConstants.KEYWORD:
                     System.out.println("KEYWORD " + token.image);
                     break;
+                    */
                 case GoConstants.OPERATOR:
                     System.out.println("OPERATOR " + token.image);
                     break;
@@ -166,15 +168,15 @@ MORE :
 
 TOKEN :
 {
-    < ID: <LETTER> (<LETTER> | <DIGIT> | "_")* >
+    < IDENTIFIER: <LETTER> (<LETTER> | <DIGIT> | "_")* >
 |   < NUM_DEC: <DIGIT> ("." <DIGIT>)? >
-|   < KEYWORD:
+/*|   < KEYWORD:
         "break" | "default" | "func" | "interface" | "select" |
         "case" | "defer" | "go" | "map" | "struct" |
         "chan" | "else" | "goto" | "package" | "switch" |
         "const" | "fallthrough" | "if" | "range" | "type" |
         "continue" | "for" | "import" | "return" | "var"
-    >
+    >*/
 |   < OPERATOR: "==" | "!=" | "<=" | ">=" | "&&" | "||" | "<<" | ">>" | "&^" | "+=" | "-=" | "*=" | "/=" | "%=" | "&=" | "|=" | "^=" | "<<=" | ">>=" | "&^=" | "<-" |
                  "++" | "--" | ":=" | "..." |
                  "+" | "-" | "*" | "/" | "%" | "&" | "|" | "^" |
@@ -185,6 +187,7 @@ TOKEN :
 |   < OCTAL_LIT: "0"  "[" "o" | "O" "]" ["_"]<OCTAL_DIGITS>>
 |   < FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
 |   < DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"." "[" <DECIMAL_DIGITS> "]" "[" <DECIMAL_EXPONENT> "]" | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS> "[" <DECIMAL_EXPONENT> "]">
+|   < HEXA_LIT: "0" ("x" | "X") ["_"]<HEXA_DIGITS>>
 |   < HEXA_FLOAT_LIT: "0" ("x" | "X") ["_"]<HEXA_MANTISSA><HEXA_EXPONENT>>
 |   < IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
 |   < DELIMITER: "{" | "}" | "(" | ")" | "[" | "]" | "," | ";" | "." >
@@ -221,8 +224,8 @@ TOKEN :
 
 TOKEN :
 {
-    < NEWLINE:"\n">
-|   < UNICODE_CHAR: "\u0000" | "\u0001" | "\u0002" | "..." | "\uFFFF" >
+    /*< NEWLINE:"\n">*/
+   < UNICODE_CHAR: "\u0000" | "\u0001" | "\u0002" | "..." | "\uFFFF" >
 |   < UNICODE_LETTER: <UNICODE_LETTER_CODEPOINT> >
 |   < UNICODE_DIGIT: <UNICODE_DIGIT_CODEPOINT> >
 }
@@ -241,7 +244,7 @@ TOKEN :
     < #DECIMAL_EXPONENT: ("e" | "E") ("+" | "-") <DECIMAL_DIGITS>> |
     < #HEXA_MANTISSA: ["_"]<HEXA_DIGITS> "."<HEXA_DIGITS> | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>> |
     < #HEXA_EXPONENT: ("p" | "P")("+" | "-")<DECIMAL_DIGITS>> |
-    < #TYPE: <TYPENAME><TYPEARGS> | <TYPELIT> | "(" <TYPE> ")"> |
+    < #TYPE: <TYPENAME> "[" <TYPEARGS> "]" | <TYPELIT> | "(" <TYPE> ")"> |
     < #TYPENAME: <IDENTIFIER> | <QUALIFIEDIDENT>> |
     < #TYPEARGS: "[" <TYPELIST> [","] "]"> |
     < #TYPELIST: <TYPE> "{" ","<TYPE>"}"> |
@@ -256,7 +259,7 @@ TOKEN :
     < #FUNCTIONTYPE: "func" <SIGNATURE>> |
     < #INTERFACETYPE: "interface" "{" "{" <INTERFACEELEM>";""}" "}"> |
     < #MAPTYPE: "map" "[" <KEYTYPE> "]" <ELEMENTTYPE>> |
-    < #CHANNELTYPE: ( "chan" | "chan" "<-" | "<-" "chan"  ) <ELEMNTTYPE>> |
+    < #CHANNELTYPE: ( "chan" | "chan" "<-" | "<-" "chan"  ) <ELEMENTTYPE>> |
     < #LITERALTYPE: <STRUCTTYPE> | <ARRAYTYPE> | "[" "..." "]" <ELEMENTTYPE> | <SLICETYPE> | <MAPTYPE> | <TYPENAME> "[" <TYPEARGS> "]"> |
     < #LITERALVALUE: "{" "[" <ELEMENTLIST> [","] "]" "}"> |
     < #ELEMENTLIST: <KEYEDELEMENT> "{" "," <KEYEDELEMENT> "}"> |
@@ -267,7 +270,7 @@ TOKEN :
     < #LITERAL: <BASICLIT> | <COMPOSITELIT> | <FUNCTIONLIT>> |
     < #OPERANDNAME: <IDENTIFIER> | <QUALIFIEDIDENT>> |
     < #TAG: <STRINGLIT>> |
-    < #BLOCK: "{" <STATEMENT> "}"> |
+    < #BLOCK: "{" <STATEMENTLIST> "}"> |
     < #CONSTDECL: "const" (<CONSTSPEC> | "(" "{"<CONSTSPEC>";" "}" ")")> |
     < #TYPEDECL: "type" "(" <TYPESPEC> | "(" "{"<TYPESPEC> ";" "}" ")" ")"> |
     < #ALIASDECL: <IDENTIFIER> | <TYPEDEF>> |
@@ -277,7 +280,7 @@ TOKEN :
     < #SLICE: "[" <EXPRESSION> ":" <EXPRESSION> "]" | "[" <EXPRESSION> ":" <EXPRESSION> ":" <EXPRESSION> "]"> |
     < #TYPEASSERTION: "." "(" <TYPE> ")"> |
     < #ARGUMENTS: "(" "[" ( <EXPRESSIONLIST> | (<TYPE> "[" "," <EXPRESSIONLIST> "]")) ("[""...""]"[","]) "]" ")"> |
-    < #METHODEXPR: <RECEVERTYPE> "." <METHODNAME>> |
+    < #METHODEXPR: <RECEIVERTYPE> "." <METHODNAME>> |
     < #TYPEDEF: <IDENTIFIER> <TYPEPARAMETERS> <TYPE>> |
     < #TYPEPARAMETERS: "[" <TYPEPARAMLIST> [","] "]"> |
     < #TYPECONSTRAINT: <TYPEELEM>> |
@@ -287,7 +290,7 @@ TOKEN :
     < #MUL_OP: "*" | "/" | "%" | "<<" | ">>" | "&" | "&^"> |
     < #UNARY_OP: "+" | "-" | "!" | "^" | "*" | "&" | "<-"> |
     < #EMPTYSTMT: "(" ";" | ")"> |
-    < #LABELEDSTMT: <LABEL> ":" <STATEMENT>> |
+    < #LABELEDSTMT: <LABEL> ":" (<GOTOSTMT> | <BREAKSTMT> | <CONTINUESTMT>) > |
     < #LABEL: <IDENTIFIER>> |
     < #EXPRESSIONSTMT: <EXPRESSION>> |
     < #SENDSTMT: <CHANNEL> "<-" <EXPRESSION>> |
@@ -329,7 +332,7 @@ TOKEN :
     < #BIG_U_VALUE: "\\" "U" <HEXA> <HEXA> <HEXA> <HEXA> <HEXA>>  |
     < #UNICODE_LETTER_CODEPOINT: ["\u0041"-"\u005A", "\u0061"-"\u007A"]> |
     < #UNICODE_DIGIT_CODEPOINT: ["\u0030"-"\u0039"]> |
-    < #RAW_STRING_LIT: "'" "{" <UNICODE_CHAR> | <NEWLINE> "}" "'"> |
+    < #RAW_STRING_LIT: "'" "{" <UNICODE_CHAR> | "\n" "}" "'"> |
     < #FALLTHROWGHSTMT: "fallthrough"> |
     < #SIGNATURE: <PARAMETERS> "[" <RESULT> "]"> |
     < #RESULT: <PARAMETERS> | <TYPE>>|
@@ -345,16 +348,16 @@ TOKEN :
     < #EXPRESSIONLIST: <EXPRESSION> "{" "," <EXPRESSION>"}">  |
     < #IDENTIFIERLIST: <IDENTIFIER> "{" "," <IDENTIFIER>"}"> |
     < #TYPEPARAMDECL: <IDENTIFIERLIST> <TYPECONSTRAINT>> |
-    < #BASE_TYPE: <TYPE>> |
+    < #BASETYPE: <TYPE>> |
     < #TYPETERM: <TYPE> | <UNDERLYINGTYPE>>  |
     < #TYPEELEM: <TYPETERM> "{" "|" <TYPETERM> "}"> |
     < #METHODNAME: <IDENTIFIER>> |
     < #METHODELEM: <METHODNAME> <SIGNATURE>> |
-    < #INTERFACEELEMEN: <METHODNAME> | <TYPELEM>> |
+    < #INTERFACEELEM: <METHODNAME> | <TYPEELEM>> |
     < #KEYTYPE: <TYPE>> |
     < #CONSTSPEC: <IDENTIFIERLIST> "[""["<TYPE>"]" "=" <EXPRESSIONLIST>"]"> |
     < #TYPEPARAMLIST: <TYPEPARAMDECL> "{""," <TYPEPARAMDECL>"}"> |
-    < #ESCAPED_CHAR: "\\" ("\" | "[""'""]" | "b" | "f" | "n" | "r" | "t" | "u" ( <HEX_DIGIT> <HEX_DIGIT> <HEX_DIGIT> <HEX_DIGIT> ) ) >
-
+    < #ESCAPED_CHAR: "\\" "(" "a" | "b" | "f" | "h" | "r" | "t" | "v" ")" > |
+    < #SHORTVARDECL: <IDENTIFIERLIST> ":=" <EXPRESSIONLIST>> 
 
 }
