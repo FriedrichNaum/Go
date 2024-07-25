@@ -5,8 +5,8 @@ public class Go implements GoConstants {
         Token token;
         while ((token = lexer.getNextToken()).kind != GoConstants.EOF) {
             switch (token.kind) {
-                case GoConstants.ID:
-                    System.out.println("ID " + token.image);
+                case GoConstants.IDENTIFIER:
+                    System.out.println("IDENTIFIER " + token.image);
                     break;
                 case GoConstants.NUM_DEC:
                     System.out.println("NUM_DEC " + token.image);
@@ -20,8 +20,38 @@ public class Go implements GoConstants {
                 case GoConstants.DELIMITER:
                     System.out.println("DELIMITER " + token.image);
                     break;
-                case GoConstants.STRING:
-                    System.out.println("STRING " + token.image);
+                case GoConstants.INT_LIT:
+                    System.out.println("MINT_LIT " + token.image);
+                    break;
+                case GoConstants.FLOAT_LIT:
+                    System.out.println("MFLOAT_LIT " + token.image);
+                    break;
+                case GoConstants.HEXA_LIT:
+                    System.out.println("HEXA_LIT " + token.image);
+                    break;
+                case GoConstants.BINARY_LIT:
+                    System.out.println("BINARY_LIT " + token.image);
+                    break;
+                case GoConstants.DECIMAL_LIT:
+                    System.out.println("DECIMAL_LIT " + token.image);
+                    break;
+                case GoConstants.DECIMAL_FLOAT_LIT:
+                    System.out.println("DECIMAL_FLOAT_LIT " + token.image);
+                    break;
+                case GoConstants.HEXA_FLOAT_LIT:
+                    System.out.println("HEXA_FLOAT_LIT " + token.image);
+                    break;
+                case GoConstants. IMAGINARY_LIT:
+                    System.out.println(" IMAGINARY_LIT " + token.image);
+                    break;
+                case GoConstants.RUNE_LIT:
+                    System.out.println("RUNE_LIT " + token.image);
+                    break;
+                case GoConstants.STRING_LITERAL:
+                    System.out.println("STRING_LITERAL " + token.image);
+                    break;
+                case GoConstants.CHARACTER_LITERAL:
+                    System.out.println("CHARACTER_LITERAL " + token.image);
                     break;
                 case GoConstants.SINGLE_LINE_COMMENT:
                     System.out.println("SINGLE_LINE_COMMENT " + token.image);
@@ -51,11 +81,16 @@ public class Go implements GoConstants {
   static private int jj_gen;
   static final private int[] jj_la1 = new int[0];
   static private int[] jj_la1_0;
+  static private int[] jj_la1_1;
   static {
       jj_la1_init_0();
+      jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
       jj_la1_0 = new int[] {};
+   }
+   private static void jj_la1_init_1() {
+      jj_la1_1 = new int[] {};
    }
 
   /** Constructor with InputStream. */
@@ -193,7 +228,7 @@ public class Go implements GoConstants {
   /** Generate ParseException. */
   static public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[16];
+    boolean[] la1tokens = new boolean[50];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -204,10 +239,13 @@ public class Go implements GoConstants {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
             la1tokens[j] = true;
           }
+          if ((jj_la1_1[i] & (1<<j)) != 0) {
+            la1tokens[32+j] = true;
+          }
         }
       }
     }
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 50; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

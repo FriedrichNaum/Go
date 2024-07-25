@@ -15,7 +15,7 @@ public interface GoConstants {
   /** RegularExpression Id. */
   int MULTI_LINE_COMMENT = 7;
   /** RegularExpression Id. */
-  int ID = 8;
+  int IDENTIFIER = 8;
   /** RegularExpression Id. */
   int NUM_DEC = 9;
   /** RegularExpression Id. */
@@ -23,13 +23,81 @@ public interface GoConstants {
   /** RegularExpression Id. */
   int OPERATOR = 11;
   /** RegularExpression Id. */
-  int DELIMITER = 12;
+  int INT_LIT = 12;
   /** RegularExpression Id. */
-  int STRING = 13;
+  int DECIMAL_LIT = 13;
   /** RegularExpression Id. */
-  int DIGIT = 14;
+  int BINARY_LIT = 14;
   /** RegularExpression Id. */
-  int LETTER = 15;
+  int OCTAL_LIT = 15;
+  /** RegularExpression Id. */
+  int FLOAT_LIT = 16;
+  /** RegularExpression Id. */
+  int DECIMAL_FLOAT_LIT = 17;
+  /** RegularExpression Id. */
+  int HEXA_LIT = 18;
+  /** RegularExpression Id. */
+  int HEXA_FLOAT_LIT = 19;
+  /** RegularExpression Id. */
+  int IMAGINARY_LIT = 20;
+  /** RegularExpression Id. */
+  int DELIMITER = 21;
+  /** RegularExpression Id. */
+  int RUNE_LIT = 22;
+  /** RegularExpression Id. */
+  int CHARACTER_LITERAL = 23;
+  /** RegularExpression Id. */
+  int STRING_LITERAL = 24;
+  /** RegularExpression Id. */
+  int STRINGLIT = 25;
+  /** RegularExpression Id. */
+  int UNICODE_CHAR = 26;
+  /** RegularExpression Id. */
+  int DIGIT = 27;
+  /** RegularExpression Id. */
+  int BINARY = 28;
+  /** RegularExpression Id. */
+  int OCTAL = 29;
+  /** RegularExpression Id. */
+  int HEXA = 30;
+  /** RegularExpression Id. */
+  int DECIMAL_DIGITS = 31;
+  /** RegularExpression Id. */
+  int BINARY_DIGITS = 32;
+  /** RegularExpression Id. */
+  int OCTAL_DIGITS = 33;
+  /** RegularExpression Id. */
+  int HEXA_DIGITS = 34;
+  /** RegularExpression Id. */
+  int LETTER = 35;
+  /** RegularExpression Id. */
+  int DECIMAL_EXPONENT = 36;
+  /** RegularExpression Id. */
+  int HEXA_MANTISSA = 37;
+  /** RegularExpression Id. */
+  int HEXA_EXPONENT = 38;
+  /** RegularExpression Id. */
+  int UNICODE_VALUE = 39;
+  /** RegularExpression Id. */
+  int BYTE_VALUE = 40;
+  /** RegularExpression Id. */
+  int OCTAL_BYTE_VALUE = 41;
+  /** RegularExpression Id. */
+  int HEX_BYTE_VALUE = 42;
+  /** RegularExpression Id. */
+  int LITLE_U_VALUE = 43;
+  /** RegularExpression Id. */
+  int BIG_U_VALUE = 44;
+  /** RegularExpression Id. */
+  int UNICODE_LETTER_CODEPOINT = 45;
+  /** RegularExpression Id. */
+  int UNICODE_DIGIT_CODEPOINT = 46;
+  /** RegularExpression Id. */
+  int ESCAPED_CHAR = 47;
+  /** RegularExpression Id. */
+  int INTERPRETED_STRING_LIT = 48;
+  /** RegularExpression Id. */
+  int RAW_STRING_LIT = 49;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -44,14 +112,48 @@ public interface GoConstants {
     "<WHITESPACE>",
     "<SINGLE_LINE_COMMENT>",
     "<MULTI_LINE_COMMENT>",
-    "<ID>",
+    "<IDENTIFIER>",
     "<NUM_DEC>",
     "<KEYWORD>",
     "<OPERATOR>",
+    "<INT_LIT>",
+    "<DECIMAL_LIT>",
+    "<BINARY_LIT>",
+    "<OCTAL_LIT>",
+    "<FLOAT_LIT>",
+    "<DECIMAL_FLOAT_LIT>",
+    "<HEXA_LIT>",
+    "<HEXA_FLOAT_LIT>",
+    "<IMAGINARY_LIT>",
     "<DELIMITER>",
-    "<STRING>",
+    "<RUNE_LIT>",
+    "<CHARACTER_LITERAL>",
+    "<STRING_LITERAL>",
+    "<STRINGLIT>",
+    "<UNICODE_CHAR>",
     "<DIGIT>",
+    "<BINARY>",
+    "<OCTAL>",
+    "<HEXA>",
+    "<DECIMAL_DIGITS>",
+    "<BINARY_DIGITS>",
+    "<OCTAL_DIGITS>",
+    "<HEXA_DIGITS>",
     "<LETTER>",
+    "<DECIMAL_EXPONENT>",
+    "<HEXA_MANTISSA>",
+    "<HEXA_EXPONENT>",
+    "<UNICODE_VALUE>",
+    "<BYTE_VALUE>",
+    "<OCTAL_BYTE_VALUE>",
+    "<HEX_BYTE_VALUE>",
+    "<LITLE_U_VALUE>",
+    "<BIG_U_VALUE>",
+    "<UNICODE_LETTER_CODEPOINT>",
+    "<UNICODE_DIGIT_CODEPOINT>",
+    "<ESCAPED_CHAR>",
+    "<INTERPRETED_STRING_LIT>",
+    "<RAW_STRING_LIT>",
   };
 
 }
