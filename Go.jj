@@ -155,7 +155,7 @@ TOKEN :
 }
 
 /*
-    javacc GoVs1.jj
+    javacc Go.jj
     javac Go.javac
     java Go < input.go
 */
