@@ -1,3 +1,4 @@
+
 PARSER_BEGIN(Go)
 
 public class Go {
@@ -6,12 +7,9 @@ public class Go {
         Token token;
         while ((token = lexer.getNextToken()).kind != GoConstants.EOF) {
             switch (token.kind) {
-                case GoConstants.IDENTIFIER:
-                    System.out.println("IDENTIFIER " + token.image);
-                    break;
                 case GoConstants.NUM_DEC:
                     System.out.println("NUM_DEC " + token.image);
-                    break;
+                    break; 
                 case GoConstants.KEYWORD:
                     System.out.println("KEYWORD " + token.image);
                     break;
@@ -22,10 +20,10 @@ public class Go {
                     System.out.println("DELIMITER " + token.image);
                     break;
                 case GoConstants.INT_LIT:
-                    System.out.println("MINT_LIT " + token.image);
+                    System.out.println("INT_LIT " + token.image);
                     break;
                 case GoConstants.FLOAT_LIT:
-                    System.out.println("MFLOAT_LIT " + token.image);
+                    System.out.println("FLOAT_LIT " + token.image);
                     break;
                 case GoConstants.HEXA_LIT:
                     System.out.println("HEXA_LIT " + token.image);
@@ -33,16 +31,13 @@ public class Go {
                 case GoConstants.BINARY_LIT:
                     System.out.println("BINARY_LIT " + token.image);
                     break;
+                case GoConstants.OCTAL_LIT:
+                    System.out.println("OCTAL_LIT " + token.image);
+                    break;
                 case GoConstants.DECIMAL_LIT:
                     System.out.println("DECIMAL_LIT " + token.image);
-                    break;
-                case GoConstants.DECIMAL_FLOAT_LIT:
-                    System.out.println("DECIMAL_FLOAT_LIT " + token.image);
-                    break;
-                case GoConstants.HEXA_FLOAT_LIT:
-                    System.out.println("HEXA_FLOAT_LIT " + token.image);
-                    break;
-                case GoConstants. IMAGINARY_LIT:
+                    break; 
+                case GoConstants.IMAGINARY_LIT:
                     System.out.println(" IMAGINARY_LIT " + token.image);
                     break;
                 case GoConstants.RUNE_LIT:
@@ -62,6 +57,9 @@ public class Go {
                     break;
                 case GoConstants.WHITESPACE:
                     // Ignore whitespace tokens
+                    break;
+                case GoConstants.IDENTIFIER:
+                    System.out.println("IDENTIFIER " + token.image);
                     break;
                 default:
                     System.out.println("UNKNOWN " + token.image);
@@ -90,28 +88,29 @@ MORE :
 
 TOKEN :
 {
-    < IDENTIFIER: <LETTER> (<LETTER> | <DIGIT> | "_")* >
-|   < NUM_DEC: <DIGIT> ("." <DIGIT>)? >
-|   < KEYWORD:
-        "break" | "default" | "func" | "interface" | "select" |
-        "case" | "defer" | "go" | "map" | "struct" |
-        "chan" | "else" | "goto" | "package" | "switch" |
-        "const" | "fallthrough" | "if" | "range" | "type" |
-        "continue" | "for" | "import" | "return" | "var"
-    >
-|   < OPERATOR: "==" | "!=" | "<=" | ">=" | "&&" | "||" | "<<" | ">>" | "&^" | "+=" | "-=" | "*=" | "/=" | "%=" | "&=" | "|=" | "^=" | "<<=" | ">>=" | "&^=" | "<-" |
-                 "++" | "--" | ":=" | "..." |
-                 "+" | "-" | "*" | "/" | "%" | "&" | "|" | "^" |
-                 "!" | "<" | ">" | "=" >
-|   < INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
-|   < DECIMAL_LIT: "0" | (<DIGIT>) "[" ["_"] <DECIMAL_DIGITS> "]" >
+    < KEYWORD: "break" | "default" | "func" | "interface" | "select" | "case" | "defer" | "go" | "map" | "struct" | "chan" | "else" | "goto" | "package" | "switch" | "const" | "fallthrough" | "if" | "range" | "type" | "continue" | "for" | "import" | "return" | "var" >
+
+/*
+|   < DECIMAL_LIT: "0" | (["1"-"9"]) ["_"] <DECIMAL_DIGITS>> 
 |   < BINARY_LIT: "0" ("b" | "B") ["_"]<BINARY_DIGITS>>
-|   < OCTAL_LIT: "0"  "[" "o" | "O" "]" ["_"]<OCTAL_DIGITS>>
+|   < OCTAL_LIT: "0"  ("o" | "O") ["_"]<OCTAL_DIGITS>>
 |   < FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
-|   < DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"." "[" <DECIMAL_DIGITS> "]" "[" <DECIMAL_EXPONENT> "]" | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS> "[" <DECIMAL_EXPONENT> "]">
 |   < HEXA_LIT: "0" ("x" | "X") ["_"]<HEXA_DIGITS>>
-|   < HEXA_FLOAT_LIT: "0" ("x" | "X") ["_"]<HEXA_MANTISSA><HEXA_EXPONENT>>
+*/
+
+|   < INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
+|   < DECIMAL_LIT: ["1"-"9"](["0"-"9"])* | "0" >
+|   < BINARY_LIT: "0" ("b" | "B") ("0" | "1")+>
+|   < OCTAL_LIT: "0"("o" | "O")(["0"-"7"])+ >
+|   < HEXA_LIT: "0" ("x" | "X") (["0"-"9", "a"-"f", "A"-"F"])+ >
+
+|   < FLOAT_LIT: (["0"-"9"])+ "." (["0"-"9"])* ( ("e" | "E") ("+" | "-")?(["0"-"9"])+)? | (["0"-"9"])+ ("e" | "E") ("+" | "-")? (["0"-"9"])+> 
+ 
+
 |   < IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
+|   < IDENTIFIER: <LETTER> (<LETTER> | <DIGIT> | "_")* >
+|   < NUM_DEC: <DIGIT>"+" ("." <DIGIT>)? > 
+|   < OPERATOR: "==" | "!=" | "<=" | ">=" | "&&" | "||" | "<<" | ">>" | "&^" | "+=" | "-=" | "*=" | "/=" | "%=" | "&=" | "|=" | "^=" | "<<=" | ">>=" | "&^=" | "<-" |"++" | "--" | ":=" | "..." | ":" | "+" | "-" | "*" | "/" | "%" | "&" | "|" | "^" | "!" | "<" | ">" | "=" >
 |   < DELIMITER: "{" | "}" | "(" | ")" | "[" | "]" | "," | ";" | "." >
 |   < RUNE_LIT: "'" ( <UNICODE_VALUE> | <BYTE_VALUE> ) "'"> 
 |   < CHARACTER_LITERAL: "'" ( <ESCAPED_CHAR> | ~["'", "\\"] ) "'" >
@@ -121,7 +120,6 @@ TOKEN :
 
 TOKEN :
 {
-    /*< NEWLINE:"\n">*/
    < UNICODE_CHAR: "\u0000" | "\u0001" | "\u0002" | "..." | "\uFFFF" >
 }
 
@@ -130,28 +128,28 @@ TOKEN :
     < #DIGIT: ["0"-"9"] >|
     < #BINARY: ["0"-"1"]>|
     < #OCTAL: ["0"-"7"]>|
-    < #HEXA: ["0"-"9"] | ["A"-"F"] | ["a"-"f"]> |
-    < #DECIMAL_DIGITS: <DIGIT> "{" ["_"] "}"<DIGIT>>|
-    < #BINARY_DIGITS: <BINARY> "{" ["_"] "}"<BINARY>>|
-    < #OCTAL_DIGITS: <OCTAL>"{" ["_"] "}"<OCTAL>>|
-    < #HEXA_DIGITS: <HEXA>"{" ["_"] "}"<HEXA>> |
+    < #HEXA: <DIGIT> | ["A"-"F"] | ["a"-"f"]> |
+    < #DECIMAL_DIGITS: (<DIGIT>)+ ("{" ["_"] (<DIGIT>)+ "}")*>|
+    < #BINARY_DIGITS: (<BINARY>)+ ("{" ["_"] (<BINARY>)+ "}")*>|
+    < #OCTAL_DIGITS: (<OCTAL>)+ ("{" ["_"] (<OCTAL>)+ "}")*>|
+    < #HEXA_DIGITS: (<HEXA>)+ ("{" ["_"] (<HEXA>)+ "}")*> |
     < #LETTER: ["a"-"z", "A"-"Z", "_"] > |
     < #DECIMAL_EXPONENT: ("e" | "E") ("+" | "-") <DECIMAL_DIGITS>> |
-    < #HEXA_MANTISSA: ["_"]<HEXA_DIGITS> "."<HEXA_DIGITS> | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>> |
-    < #HEXA_EXPONENT: ("p" | "P")("+" | "-")<DECIMAL_DIGITS>> |
+    < #HEXA_MANTISSA: ["_"]<HEXA_DIGITS> "." "[" <HEXA_DIGITS>"]" | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>> |
+    < #HEXA_EXPONENT: ("p" | "P") ("+" | "-")<DECIMAL_DIGITS>> |
     < #UNICODE_VALUE: <UNICODE_CHAR> | <LITLE_U_VALUE> | <BIG_U_VALUE> | <ESCAPED_CHAR>>  |
     < #BYTE_VALUE: <OCTAL_BYTE_VALUE> | <HEX_BYTE_VALUE>> |
     < #OCTAL_BYTE_VALUE: "\\" <OCTAL> <OCTAL> <OCTAL>> |
     < #HEX_BYTE_VALUE: "\\" "x" <HEXA> <HEXA>> |
     < #LITLE_U_VALUE: "\\" "u" <HEXA> <HEXA> <HEXA> <HEXA>>  |
-    < #BIG_U_VALUE: "\\" "U" <HEXA> <HEXA> <HEXA> <HEXA> <HEXA>>  |
+    < #BIG_U_VALUE: "\\" "U" <HEXA> <HEXA> <HEXA> <HEXA> <HEXA> <HEXA> <HEXA> <HEXA>>  |
     < #UNICODE_LETTER_CODEPOINT: ["\u0041"-"\u005A", "\u0061"-"\u007A"]> |
     < #UNICODE_DIGIT_CODEPOINT: ["\u0030"-"\u0039"]> |
     < #ESCAPED_CHAR: "\\" ("a" | "b" | "f" | "n" | "r" | "t" | "v" | "\\" | "'" | "\"") > |
-    < #INTERPRETED_STRING_LIT: """ {<UNICODE_VALUE> | <BYTE_VALUE>} """> |
-    < #RAW_STRING_LIT: "'" "{" <UNICODE_CHAR> | "\n" "}" "'"> 
-
-
+    < #INTERPRETED_STRING_LIT: "\"" "{" <UNICODE_VALUE> | <BYTE_VALUE> "}" "\""> |
+    < #RAW_STRING_LIT: "'" "{" <UNICODE_CHAR> | "\n" "}" "'"> |
+    < #DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"." "[" <DECIMAL_DIGITS> "]" "[" <DECIMAL_EXPONENT> "]" | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS> "[" <DECIMAL_EXPONENT> "]"> |
+    < #HEXA_FLOAT_LIT: "0" ("x" | "X") <HEXA_MANTISSA><HEXA_EXPONENT>>
 }
 
 /*

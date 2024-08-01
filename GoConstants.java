@@ -15,89 +15,89 @@ public interface GoConstants {
   /** RegularExpression Id. */
   int MULTI_LINE_COMMENT = 7;
   /** RegularExpression Id. */
-  int IDENTIFIER = 8;
+  int KEYWORD = 8;
   /** RegularExpression Id. */
-  int NUM_DEC = 9;
+  int INT_LIT = 9;
   /** RegularExpression Id. */
-  int KEYWORD = 10;
+  int DECIMAL_LIT = 10;
   /** RegularExpression Id. */
-  int OPERATOR = 11;
+  int BINARY_LIT = 11;
   /** RegularExpression Id. */
-  int INT_LIT = 12;
+  int OCTAL_LIT = 12;
   /** RegularExpression Id. */
-  int DECIMAL_LIT = 13;
+  int HEXA_LIT = 13;
   /** RegularExpression Id. */
-  int BINARY_LIT = 14;
+  int FLOAT_LIT = 14;
   /** RegularExpression Id. */
-  int OCTAL_LIT = 15;
+  int IMAGINARY_LIT = 15;
   /** RegularExpression Id. */
-  int FLOAT_LIT = 16;
+  int IDENTIFIER = 16;
   /** RegularExpression Id. */
-  int DECIMAL_FLOAT_LIT = 17;
+  int NUM_DEC = 17;
   /** RegularExpression Id. */
-  int HEXA_LIT = 18;
+  int OPERATOR = 18;
   /** RegularExpression Id. */
-  int HEXA_FLOAT_LIT = 19;
+  int DELIMITER = 19;
   /** RegularExpression Id. */
-  int IMAGINARY_LIT = 20;
+  int RUNE_LIT = 20;
   /** RegularExpression Id. */
-  int DELIMITER = 21;
+  int CHARACTER_LITERAL = 21;
   /** RegularExpression Id. */
-  int RUNE_LIT = 22;
+  int STRING_LITERAL = 22;
   /** RegularExpression Id. */
-  int CHARACTER_LITERAL = 23;
+  int STRINGLIT = 23;
   /** RegularExpression Id. */
-  int STRING_LITERAL = 24;
+  int UNICODE_CHAR = 24;
   /** RegularExpression Id. */
-  int STRINGLIT = 25;
+  int DIGIT = 25;
   /** RegularExpression Id. */
-  int UNICODE_CHAR = 26;
+  int BINARY = 26;
   /** RegularExpression Id. */
-  int DIGIT = 27;
+  int OCTAL = 27;
   /** RegularExpression Id. */
-  int BINARY = 28;
+  int HEXA = 28;
   /** RegularExpression Id. */
-  int OCTAL = 29;
+  int DECIMAL_DIGITS = 29;
   /** RegularExpression Id. */
-  int HEXA = 30;
+  int BINARY_DIGITS = 30;
   /** RegularExpression Id. */
-  int DECIMAL_DIGITS = 31;
+  int OCTAL_DIGITS = 31;
   /** RegularExpression Id. */
-  int BINARY_DIGITS = 32;
+  int HEXA_DIGITS = 32;
   /** RegularExpression Id. */
-  int OCTAL_DIGITS = 33;
+  int LETTER = 33;
   /** RegularExpression Id. */
-  int HEXA_DIGITS = 34;
+  int DECIMAL_EXPONENT = 34;
   /** RegularExpression Id. */
-  int LETTER = 35;
+  int HEXA_MANTISSA = 35;
   /** RegularExpression Id. */
-  int DECIMAL_EXPONENT = 36;
+  int HEXA_EXPONENT = 36;
   /** RegularExpression Id. */
-  int HEXA_MANTISSA = 37;
+  int UNICODE_VALUE = 37;
   /** RegularExpression Id. */
-  int HEXA_EXPONENT = 38;
+  int BYTE_VALUE = 38;
   /** RegularExpression Id. */
-  int UNICODE_VALUE = 39;
+  int OCTAL_BYTE_VALUE = 39;
   /** RegularExpression Id. */
-  int BYTE_VALUE = 40;
+  int HEX_BYTE_VALUE = 40;
   /** RegularExpression Id. */
-  int OCTAL_BYTE_VALUE = 41;
+  int LITLE_U_VALUE = 41;
   /** RegularExpression Id. */
-  int HEX_BYTE_VALUE = 42;
+  int BIG_U_VALUE = 42;
   /** RegularExpression Id. */
-  int LITLE_U_VALUE = 43;
+  int UNICODE_LETTER_CODEPOINT = 43;
   /** RegularExpression Id. */
-  int BIG_U_VALUE = 44;
+  int UNICODE_DIGIT_CODEPOINT = 44;
   /** RegularExpression Id. */
-  int UNICODE_LETTER_CODEPOINT = 45;
+  int ESCAPED_CHAR = 45;
   /** RegularExpression Id. */
-  int UNICODE_DIGIT_CODEPOINT = 46;
+  int INTERPRETED_STRING_LIT = 46;
   /** RegularExpression Id. */
-  int ESCAPED_CHAR = 47;
+  int RAW_STRING_LIT = 47;
   /** RegularExpression Id. */
-  int INTERPRETED_STRING_LIT = 48;
+  int DECIMAL_FLOAT_LIT = 48;
   /** RegularExpression Id. */
-  int RAW_STRING_LIT = 49;
+  int HEXA_FLOAT_LIT = 49;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -112,19 +112,17 @@ public interface GoConstants {
     "<WHITESPACE>",
     "<SINGLE_LINE_COMMENT>",
     "<MULTI_LINE_COMMENT>",
-    "<IDENTIFIER>",
-    "<NUM_DEC>",
     "<KEYWORD>",
-    "<OPERATOR>",
     "<INT_LIT>",
     "<DECIMAL_LIT>",
     "<BINARY_LIT>",
     "<OCTAL_LIT>",
-    "<FLOAT_LIT>",
-    "<DECIMAL_FLOAT_LIT>",
     "<HEXA_LIT>",
-    "<HEXA_FLOAT_LIT>",
+    "<FLOAT_LIT>",
     "<IMAGINARY_LIT>",
+    "<IDENTIFIER>",
+    "<NUM_DEC>",
+    "<OPERATOR>",
     "<DELIMITER>",
     "<RUNE_LIT>",
     "<CHARACTER_LITERAL>",
@@ -154,6 +152,8 @@ public interface GoConstants {
     "<ESCAPED_CHAR>",
     "<INTERPRETED_STRING_LIT>",
     "<RAW_STRING_LIT>",
+    "<DECIMAL_FLOAT_LIT>",
+    "<HEXA_FLOAT_LIT>",
   };
 
 }

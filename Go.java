@@ -5,9 +5,6 @@ public class Go implements GoConstants {
         Token token;
         while ((token = lexer.getNextToken()).kind != GoConstants.EOF) {
             switch (token.kind) {
-                case GoConstants.IDENTIFIER:
-                    System.out.println("IDENTIFIER " + token.image);
-                    break;
                 case GoConstants.NUM_DEC:
                     System.out.println("NUM_DEC " + token.image);
                     break;
@@ -21,10 +18,10 @@ public class Go implements GoConstants {
                     System.out.println("DELIMITER " + token.image);
                     break;
                 case GoConstants.INT_LIT:
-                    System.out.println("MINT_LIT " + token.image);
+                    System.out.println("INT_LIT " + token.image);
                     break;
                 case GoConstants.FLOAT_LIT:
-                    System.out.println("MFLOAT_LIT " + token.image);
+                    System.out.println("FLOAT_LIT " + token.image);
                     break;
                 case GoConstants.HEXA_LIT:
                     System.out.println("HEXA_LIT " + token.image);
@@ -32,16 +29,13 @@ public class Go implements GoConstants {
                 case GoConstants.BINARY_LIT:
                     System.out.println("BINARY_LIT " + token.image);
                     break;
+                case GoConstants.OCTAL_LIT:
+                    System.out.println("OCTAL_LIT " + token.image);
+                    break;
                 case GoConstants.DECIMAL_LIT:
                     System.out.println("DECIMAL_LIT " + token.image);
                     break;
-                case GoConstants.DECIMAL_FLOAT_LIT:
-                    System.out.println("DECIMAL_FLOAT_LIT " + token.image);
-                    break;
-                case GoConstants.HEXA_FLOAT_LIT:
-                    System.out.println("HEXA_FLOAT_LIT " + token.image);
-                    break;
-                case GoConstants. IMAGINARY_LIT:
+                case GoConstants.IMAGINARY_LIT:
                     System.out.println(" IMAGINARY_LIT " + token.image);
                     break;
                 case GoConstants.RUNE_LIT:
@@ -61,6 +55,9 @@ public class Go implements GoConstants {
                     break;
                 case GoConstants.WHITESPACE:
                     // Ignore whitespace tokens
+                    break;
+                case GoConstants.IDENTIFIER:
+                    System.out.println("IDENTIFIER " + token.image);
                     break;
                 default:
                     System.out.println("UNKNOWN " + token.image);
