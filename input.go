@@ -4,13 +4,14 @@ import (
 	"fmt"
 )
 
+// Codigo
+
 type Ponto struct {
 	x int
 	y int
 }
 
 func funcao(v []Ponto, n int) float64 {
-	s := 2.5e+2
 	if n <= 0 {
 		return 1.0
 	} else if n == 1 {

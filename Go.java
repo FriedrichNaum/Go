@@ -5,26 +5,224 @@ public class Go implements GoConstants {
         Token token;
         while ((token = lexer.getNextToken()).kind != GoConstants.EOF) {
             switch (token.kind) {
-                case GoConstants.NUM_DEC:
-                    System.out.println("NUM_DEC " + token.image);
+                case GoConstants.BREAK:
+                    System.out.println("BREAK " + token.image);
                     break;
-                case GoConstants.KEYWORD:
-                    System.out.println("KEYWORD " + token.image);
+                case GoConstants.DEFAULTT:
+                    System.out.println("DEFAULT " + token.image);
                     break;
-                case GoConstants.OPERATOR:
-                    System.out.println("OPERATOR " + token.image);
+                case GoConstants.FUNC:
+                    System.out.println("FUNC " + token.image);
                     break;
-                case GoConstants.DELIMITER:
-                    System.out.println("DELIMITER " + token.image);
+                case GoConstants.INTERFACE:
+                    System.out.println("INTERFACE " + token.image);
+                    break;
+                case GoConstants.SELECT:
+                    System.out.println("SELECT " + token.image);
+                    break;
+                case GoConstants.CASE:
+                    System.out.println("CASE " + token.image);
+                    break;
+                case GoConstants.DEFER:
+                    System.out.println("DEFER " + token.image);
+                    break;
+                case GoConstants.GO:
+                    System.out.println("GO " + token.image);
+                    break;
+                case GoConstants.MAP:
+                    System.out.println("MAP " + token.image);
+                    break;
+                case GoConstants.STRUCT:
+                    System.out.println("STRUCT " + token.image);
+                    break;
+                case GoConstants.CHAN:
+                    System.out.println("CHAN " + token.image);
+                    break;
+                case GoConstants.IF:
+                    System.out.println("IF " + token.image);
+                    break;
+                case GoConstants.ELSE:
+                    System.out.println("ELSE " + token.image);
+                    break;
+                case GoConstants.GOTO:
+                    System.out.println("GOTO " + token.image);
+                    break;
+                case GoConstants.PACKAGE:
+                    System.out.println("PACKAGE " + token.image);
+                    break;
+                case GoConstants.SWITCH:
+                    System.out.println("SWITCH " + token.image);
+                    break;
+                case GoConstants.CONST:
+                    System.out.println("CONST " + token.image);
+                    break;
+                case GoConstants.FALLTHROUGH:
+                    System.out.println("FALLTHROUGH " + token.image);
+                    break;
+                case GoConstants.RANGE:
+                    System.out.println("RANGE " + token.image);
+                    break;
+                case GoConstants.TYPE:
+                    System.out.println("TYPE " + token.image);
+                    break;
+                case GoConstants.CONTINUE:
+                    System.out.println("CONTINUE " + token.image);
+                    break;
+                case GoConstants.FOR:
+                    System.out.println("FOR " + token.image);
+                    break;
+                case GoConstants.IMPORT:
+                    System.out.println("IMPORT " + token.image);
+                    break;
+                case GoConstants.RETURN:
+                    System.out.println("RETURN " + token.image);
+                    break;
+                case GoConstants.VAR:
+                    System.out.println("VAR " + token.image);
+                    break;
+                case GoConstants.EQUAL_COMPARISON:
+                    System.out.println("EQUAL_COMPARISON " + token.image);
+                    break;
+                case GoConstants.DIFFERENCE_COMPARISON:
+                    System.out.println("DIFFERENCE_COMPARISON " + token.image);
+                    break;
+                case GoConstants.SUM_EQUAL:
+                    System.out.println("SUM_EQUAL " + token.image);
+                    break;
+                case GoConstants.DIFFERENCE_EQUAL:
+                    System.out.println("DIFFERENCE_EQUAL " + token.image);
+                    break;
+                case GoConstants.LESS_OR_EQUAL:
+                    System.out.println("LESS_OR_EQUAL " + token.image);
+                    break;
+                case GoConstants.MORE_OR_EQUAL:
+                    System.out.println("MORE_OR_EQUAL " + token.image);
+                    break;
+                case GoConstants.AND:
+                    System.out.println("AND " + token.image);
+                    break;
+                case GoConstants.OR:
+                    System.out.println("OR " + token.image);
+                    break;
+                case GoConstants.LEFT_SHIFT:
+                    System.out.println("LEFT_SHIFT " + token.image);
+                    break;
+                case GoConstants.RIGHT_SHIFT:
+                    System.out.println("RIGHT_SHIFT " + token.image);
+                    break;
+                case GoConstants.LEFT_SHIFT_EQUAL:
+                    System.out.println("LEFT_SHIFT_EQUAL " + token.image);
+                    break;
+                case GoConstants.RIGHT_SHIFT_EQUAL:
+                    System.out.println("RIGHT_SHIFT_EQUAL " + token.image);
+                    break;
+                case GoConstants.AND_NOT:
+                    System.out.println("AND_NOT " + token.image);
+                    break;
+                case GoConstants.AND_NOT_EQUAL:
+                    System.out.println("AND_NOT_EQUAL " + token.image);
+                    break;
+                case GoConstants.AND_EQUAL:
+                    System.out.println("AND_EQUAL " + token.image);
+                    break;
+                case GoConstants.MULTIPLICATION_EQUAL:
+                    System.out.println("MULTIPLICATION_EQUAL " + token.image);
+                    break;
+                case GoConstants.DIVISION_EQUAL:
+                    System.out.println("DIVISION_EQUAL " + token.image);
+                    break;
+                case GoConstants.REST_EQUAL:
+                    System.out.println("REST_EQUAL " + token.image);
+                    break;
+                case GoConstants.OR_EQUAL:
+                    System.out.println("OR_EQUAL " + token.image);
+                    break;
+                case GoConstants.EXPONENTI_EQUAL:
+                    System.out.println("EXPONENTI_EQUAL " + token.image);
+                    break;
+                case GoConstants.CHANNEL:
+                    System.out.println("CHANNEL " + token.image);
+                    break;
+                case GoConstants.INCREMENT:
+                    System.out.println("INCREMENT " + token.image);
+                    break;
+                case GoConstants.DECREMENT:
+                    System.out.println("DECREMENT " + token.image);
+                    break;
+                case GoConstants.OPERATOR_DECLARATION:
+                    System.out.println("OPERATOR_DECLARATION " + token.image);
+                    break;
+                case GoConstants.PARAMETERS_VARIADICS:
+                    System.out.println("PARAMETERS_VARIADICS " + token.image);
+                    break;
+                case GoConstants.SUM:
+                    System.out.println("SUM " + token.image);
+                    break;
+                case GoConstants.DIFFERENCE:
+                    System.out.println("DIFFERENCE " + token.image);
+                    break;
+                case GoConstants.MULTIPLICATION:
+                    System.out.println("MULTIPLICATION " + token.image);
+                    break;
+                case GoConstants.DIVISION:
+                    System.out.println("DIVISION " + token.image);
+                    break;
+                case GoConstants.REST:
+                    System.out.println("REST " + token.image);
+                    break;
+                case GoConstants.AND_BIT:
+                    System.out.println("AND_BIT " + token.image);
+                    break;
+                case GoConstants.OR_BIT:
+                    System.out.println("OR_BIT " + token.image);
+                    break;
+                case GoConstants.NOT:
+                    System.out.println("NOT " + token.image);
+                    break;
+                case GoConstants.EXPONENT:
+                    System.out.println("EXPONENT " + token.image);
+                    break;
+                case GoConstants.SMALLER:
+                    System.out.println("SMALLER " + token.image);
+                    break;
+                case GoConstants.BIGGER:
+                    System.out.println("BIGGER " + token.image);
+                    break;
+                case GoConstants.EQUAL:
+                    System.out.println("EQUAL " + token.image);
+                    break;
+                case GoConstants.KEY_IN:
+                    System.out.println("KEY_IN " + token.image);
+                    break;
+                case GoConstants.KEY_OUT:
+                    System.out.println("KEY_OUT " + token.image);
+                    break;
+                case GoConstants.PARENTHESES_IN:
+                    System.out.println("PARENTHESES_IN " + token.image);
+                    break;
+                case GoConstants.PARENTHESES_OUT:
+                    System.out.println("PARENTHESES_OUT " + token.image);
+                    break;
+                case GoConstants.BRACKET_IN:
+                    System.out.println("BRACKET_IN " + token.image);
+                    break;
+                case GoConstants.BRACKET_OUT:
+                    System.out.println("BRACKET_OUT " + token.image);
+                    break;
+                case GoConstants.COMMA:
+                    System.out.println("COMMA " + token.image);
+                    break;
+                case GoConstants.SEMICOLON:
+                    System.out.println("SEMICOLON " + token.image);
+                    break;
+                case GoConstants.PERIOD:
+                    System.out.println("PERIOD " + token.image);
                     break;
                 case GoConstants.INT_LIT:
                     System.out.println("INT_LIT " + token.image);
                     break;
                 case GoConstants.FLOAT_LIT:
                     System.out.println("FLOAT_LIT " + token.image);
-                    break;
-                case GoConstants.HEXA_LIT:
-                    System.out.println("HEXA_LIT " + token.image);
                     break;
                 case GoConstants.BINARY_LIT:
                     System.out.println("BINARY_LIT " + token.image);
@@ -53,9 +251,11 @@ public class Go implements GoConstants {
                 case GoConstants.MULTI_LINE_COMMENT:
                     System.out.println("MULTI_LINE_COMMENT " + token.image);
                     break;
+                    /*
                 case GoConstants.WHITESPACE:
                     // Ignore whitespace tokens
                     break;
+                    */
                 case GoConstants.IDENTIFIER:
                     System.out.println("IDENTIFIER " + token.image);
                     break;
@@ -79,15 +279,25 @@ public class Go implements GoConstants {
   static final private int[] jj_la1 = new int[0];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
+  static private int[] jj_la1_2;
+  static private int[] jj_la1_3;
   static {
       jj_la1_init_0();
       jj_la1_init_1();
+      jj_la1_init_2();
+      jj_la1_init_3();
    }
    private static void jj_la1_init_0() {
       jj_la1_0 = new int[] {};
    }
    private static void jj_la1_init_1() {
       jj_la1_1 = new int[] {};
+   }
+   private static void jj_la1_init_2() {
+      jj_la1_2 = new int[] {};
+   }
+   private static void jj_la1_init_3() {
+      jj_la1_3 = new int[] {};
    }
 
   /** Constructor with InputStream. */
@@ -225,7 +435,7 @@ public class Go implements GoConstants {
   /** Generate ParseException. */
   static public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[50];
+    boolean[] la1tokens = new boolean[118];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -239,10 +449,16 @@ public class Go implements GoConstants {
           if ((jj_la1_1[i] & (1<<j)) != 0) {
             la1tokens[32+j] = true;
           }
+          if ((jj_la1_2[i] & (1<<j)) != 0) {
+            la1tokens[64+j] = true;
+          }
+          if ((jj_la1_3[i] & (1<<j)) != 0) {
+            la1tokens[96+j] = true;
+          }
         }
       }
     }
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 118; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

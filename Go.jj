@@ -7,26 +7,224 @@ public class Go {
         Token token;
         while ((token = lexer.getNextToken()).kind != GoConstants.EOF) {
             switch (token.kind) {
-                case GoConstants.NUM_DEC:
-                    System.out.println("NUM_DEC " + token.image);
-                    break; 
-                case GoConstants.KEYWORD:
-                    System.out.println("KEYWORD " + token.image);
+                case GoConstants.BREAK:
+                    System.out.println("BREAK " + token.image);
                     break;
-                case GoConstants.OPERATOR:
-                    System.out.println("OPERATOR " + token.image);
+                case GoConstants.DEFAULTT:
+                    System.out.println("DEFAULT " + token.image);
                     break;
-                case GoConstants.DELIMITER:
-                    System.out.println("DELIMITER " + token.image);
+                case GoConstants.FUNC:
+                    System.out.println("FUNC " + token.image);
                     break;
+                case GoConstants.INTERFACE:
+                    System.out.println("INTERFACE " + token.image);
+                    break;
+                case GoConstants.SELECT:
+                    System.out.println("SELECT " + token.image);
+                    break;
+                case GoConstants.CASE:
+                    System.out.println("CASE " + token.image);
+                    break;
+                case GoConstants.DEFER:
+                    System.out.println("DEFER " + token.image);
+                    break;
+                case GoConstants.GO:
+                    System.out.println("GO " + token.image);
+                    break;
+                case GoConstants.MAP:
+                    System.out.println("MAP " + token.image);
+                    break;
+                case GoConstants.STRUCT:
+                    System.out.println("STRUCT " + token.image);
+                    break;
+                case GoConstants.CHAN:
+                    System.out.println("CHAN " + token.image);
+                    break;
+                case GoConstants.IF:
+                    System.out.println("IF " + token.image);
+                    break;
+                case GoConstants.ELSE:
+                    System.out.println("ELSE " + token.image);
+                    break;
+                case GoConstants.GOTO:
+                    System.out.println("GOTO " + token.image);
+                    break;
+                case GoConstants.PACKAGE:
+                    System.out.println("PACKAGE " + token.image);
+                    break;
+                case GoConstants.SWITCH:
+                    System.out.println("SWITCH " + token.image);
+                    break;
+                case GoConstants.CONST:
+                    System.out.println("CONST " + token.image);
+                    break;
+                case GoConstants.FALLTHROUGH:
+                    System.out.println("FALLTHROUGH " + token.image);
+                    break;
+                case GoConstants.RANGE:
+                    System.out.println("RANGE " + token.image);
+                    break;
+                case GoConstants.TYPE:
+                    System.out.println("TYPE " + token.image);
+                    break;
+                case GoConstants.CONTINUE:
+                    System.out.println("CONTINUE " + token.image);
+                    break;
+                case GoConstants.FOR:
+                    System.out.println("FOR " + token.image);
+                    break;
+                case GoConstants.IMPORT:
+                    System.out.println("IMPORT " + token.image);
+                    break;
+                case GoConstants.RETURN:
+                    System.out.println("RETURN " + token.image);
+                    break;
+                case GoConstants.VAR:
+                    System.out.println("VAR " + token.image);
+                    break;
+                case GoConstants.EQUAL_COMPARISON:
+                    System.out.println("EQUAL_COMPARISON " + token.image);
+                    break;
+                case GoConstants.DIFFERENCE_COMPARISON:
+                    System.out.println("DIFFERENCE_COMPARISON " + token.image);
+                    break;
+                case GoConstants.SUM_EQUAL:
+                    System.out.println("SUM_EQUAL " + token.image);
+                    break;
+                case GoConstants.DIFFERENCE_EQUAL:
+                    System.out.println("DIFFERENCE_EQUAL " + token.image);
+                    break;
+                case GoConstants.LESS_OR_EQUAL:
+                    System.out.println("LESS_OR_EQUAL " + token.image);
+                    break;
+                case GoConstants.MORE_OR_EQUAL:
+                    System.out.println("MORE_OR_EQUAL " + token.image);
+                    break;
+                case GoConstants.AND:
+                    System.out.println("AND " + token.image);
+                    break;
+                case GoConstants.OR:
+                    System.out.println("OR " + token.image);
+                    break;
+                case GoConstants.LEFT_SHIFT:
+                    System.out.println("LEFT_SHIFT " + token.image);
+                    break;
+                case GoConstants.RIGHT_SHIFT:
+                    System.out.println("RIGHT_SHIFT " + token.image);
+                    break;
+                case GoConstants.LEFT_SHIFT_EQUAL:
+                    System.out.println("LEFT_SHIFT_EQUAL " + token.image);
+                    break;
+                case GoConstants.RIGHT_SHIFT_EQUAL:
+                    System.out.println("RIGHT_SHIFT_EQUAL " + token.image);
+                    break;
+                case GoConstants.AND_NOT:
+                    System.out.println("AND_NOT " + token.image);
+                    break;
+                case GoConstants.AND_NOT_EQUAL:
+                    System.out.println("AND_NOT_EQUAL " + token.image);
+                    break;
+                case GoConstants.AND_EQUAL:
+                    System.out.println("AND_EQUAL " + token.image);
+                    break;
+                case GoConstants.MULTIPLICATION_EQUAL:
+                    System.out.println("MULTIPLICATION_EQUAL " + token.image);
+                    break;
+                case GoConstants.DIVISION_EQUAL:
+                    System.out.println("DIVISION_EQUAL " + token.image);
+                    break;
+                case GoConstants.REST_EQUAL:
+                    System.out.println("REST_EQUAL " + token.image);
+                    break;
+                case GoConstants.OR_EQUAL:
+                    System.out.println("OR_EQUAL " + token.image);
+                    break;
+                case GoConstants.EXPONENTI_EQUAL:
+                    System.out.println("EXPONENTI_EQUAL " + token.image);
+                    break;
+                case GoConstants.CHANNEL:
+                    System.out.println("CHANNEL " + token.image);
+                    break;
+                case GoConstants.INCREMENT:
+                    System.out.println("INCREMENT " + token.image);
+                    break;
+                case GoConstants.DECREMENT:
+                    System.out.println("DECREMENT " + token.image);
+                    break;
+                case GoConstants.OPERATOR_DECLARATION:
+                    System.out.println("OPERATOR_DECLARATION " + token.image);
+                    break;
+                case GoConstants.PARAMETERS_VARIADICS:
+                    System.out.println("PARAMETERS_VARIADICS " + token.image);
+                    break;
+                case GoConstants.SUM:
+                    System.out.println("SUM " + token.image);
+                    break;
+                case GoConstants.DIFFERENCE:
+                    System.out.println("DIFFERENCE " + token.image);
+                    break;
+                case GoConstants.MULTIPLICATION:
+                    System.out.println("MULTIPLICATION " + token.image);
+                    break;
+                case GoConstants.DIVISION:
+                    System.out.println("DIVISION " + token.image);
+                    break;
+                case GoConstants.REST:
+                    System.out.println("REST " + token.image);
+                    break;
+                case GoConstants.AND_BIT:
+                    System.out.println("AND_BIT " + token.image);
+                    break;
+                case GoConstants.OR_BIT:
+                    System.out.println("OR_BIT " + token.image);
+                    break;
+                case GoConstants.NOT:
+                    System.out.println("NOT " + token.image);
+                    break;
+                case GoConstants.EXPONENT:
+                    System.out.println("EXPONENT " + token.image);
+                    break;
+                case GoConstants.SMALLER:
+                    System.out.println("SMALLER " + token.image);
+                    break;
+                case GoConstants.BIGGER:
+                    System.out.println("BIGGER " + token.image);
+                    break;
+                case GoConstants.EQUAL:
+                    System.out.println("EQUAL " + token.image);
+                    break;
+                case GoConstants.KEY_IN:
+                    System.out.println("KEY_IN " + token.image);
+                    break;
+                case GoConstants.KEY_OUT:
+                    System.out.println("KEY_OUT " + token.image);
+                    break;
+                case GoConstants.PARENTHESES_IN:
+                    System.out.println("PARENTHESES_IN " + token.image);
+                    break;
+                case GoConstants.PARENTHESES_OUT:
+                    System.out.println("PARENTHESES_OUT " + token.image);
+                    break;
+                case GoConstants.BRACKET_IN:
+                    System.out.println("BRACKET_IN " + token.image);
+                    break;
+                case GoConstants.BRACKET_OUT:
+                    System.out.println("BRACKET_OUT " + token.image);
+                    break;
+                case GoConstants.COMMA:
+                    System.out.println("COMMA " + token.image);
+                    break;
+                case GoConstants.SEMICOLON:
+                    System.out.println("SEMICOLON " + token.image);
+                    break;
+                case GoConstants.PERIOD:
+                    System.out.println("PERIOD " + token.image);
+                    break;               
                 case GoConstants.INT_LIT:
                     System.out.println("INT_LIT " + token.image);
                     break;
                 case GoConstants.FLOAT_LIT:
                     System.out.println("FLOAT_LIT " + token.image);
-                    break;
-                case GoConstants.HEXA_LIT:
-                    System.out.println("HEXA_LIT " + token.image);
                     break;
                 case GoConstants.BINARY_LIT:
                     System.out.println("BINARY_LIT " + token.image);
@@ -55,9 +253,11 @@ public class Go {
                 case GoConstants.MULTI_LINE_COMMENT:
                     System.out.println("MULTI_LINE_COMMENT " + token.image);
                     break;
+                    /*
                 case GoConstants.WHITESPACE:
                     // Ignore whitespace tokens
                     break;
+                    */
                 case GoConstants.IDENTIFIER:
                     System.out.println("IDENTIFIER " + token.image);
                     break;
@@ -73,45 +273,123 @@ PARSER_END(Go)
 
 SKIP :
 {
-    " "
-|   "\t"
-|   "\n"
-|   "\r"
+    " " | "\t" | "\n" | "\r" |"" // Ignora espaços em branco
 }
 
 MORE :
 {
-    < WHITESPACE: ( " " | "\t" | "\n" | "\r" )+ >
-|   < SINGLE_LINE_COMMENT: "//" (~["\n", "\r"])* ("\n" | "\r") >
+   /* < WHITESPACE: ( " " | "\t" | "\n" | "\r" )+ >
+|*/ 
+  < SINGLE_LINE_COMMENT: "//" (~["\n", "\r"])* ("\n" | "\r") >
 |   < MULTI_LINE_COMMENT: "/*" (~["*"])* "*" (~["/"] | "/" ~["*"])* "*" "/" >
 }
 
 TOKEN :
 {
-    < KEYWORD: "break" | "default" | "func" | "interface" | "select" | "case" | "defer" | "go" | "map" | "struct" | "chan" | "else" | "goto" | "package" | "switch" | "const" | "fallthrough" | "if" | "range" | "type" | "continue" | "for" | "import" | "return" | "var" >
+    < BREAK: "break" >
+|   < DEFAULTT: "default" >
+|   < FUNC: "func" >
+|   < INTERFACE: "interface" >
+|   < SELECT: "select" >
+|   < CASE: "case" >
+|   < DEFER: "defer" >
+|   < GO: "go" >
+|   < MAP: "map" >
+|   < STRUCT: "struct" >
+|   < CHAN: "chan" >
+|   < ELSE: "else" >
+|   < GOTO: "goto" >
+|   < PACKAGE: "package" >
+|   < SWITCH: "switch" >
+|   < CONST: "const" >
+|   < FALLTHROUGH: "fallthrough" >
+|   < IF: "if" >
+|   < RANGE: "range" >
+|   < TYPE: "type" >
+|   < CONTINUE: "continue" >
+|   < FOR: "for" >
+|   < IMPORT: "import" >
+|   < RETURN: "return" >
+|   < VAR: "var" >
+
+}
+
+TOKEN:
+{
+    < EQUAL_COMPARISON: "==" >
+|   < DIFFERENCE_COMPARISON: "!=" >
+|   < LESS_OR_EQUAL: "<=" >
+|   < MORE_OR_EQUAL: ">=" >
+|   < AND: "&&" >
+|   < OR: "||" >
+|   < RIGHT_SHIFT: ">>" >
+|   < LEFT_SHIFT: "<<" >
+|   < AND_NOT: "&^" >
+|   < SUM_EQUAL: "+=" >
+|   < DIFFERENCE_EQUAL: "-=" >
+|   < MULTIPLICATION_EQUAL: "*=" >
+|   < DIVISION_EQUAL: "/=" >
+|   < REST_EQUAL: "%=" >
+|   < AND_EQUAL: "&=" >
+|   < OR_EQUAL: "|=" >
+|   < EXPONENTI_EQUAL: "^=" >
+|   < LEFT_SHIFT_EQUAL: "<<=" >
+|   < RIGHT_SHIFT_EQUAL: ">>=" >
+|   < AND_NOT_EQUAL: "&^=" >
+|   < CHANNEL: "<-" >
+|   < INCREMENT: "++" >
+|   < DECREMENT: "--" >
+|   < OPERATOR_DECLARATION: ":=" >
+|   < PARAMETERS_VARIADICS: "..." >
+|   < TWO_POINTS: ":" >
+|   < SUM: "+" >
+|   < DIFFERENCE: "-" >
+|   < MULTIPLICATION: "*" >
+|   < DIVISION: "/" >
+|   < REST: "%" >
+|   < AND_BIT: "&" >
+|   < OR_BIT: "|" >
+|   < EXPONENT: "^" >
+|   < NOT: "!" >
+|   < SMALLER: "<" >
+|   < BIGGER: ">" >
+|   < EQUAL: "=" >
+|   < KEY_IN: "{" >
+|   < KEY_OUT: "}" >
+|   < PARENTHESES_IN: "(" >
+|   < PARENTHESES_OUT: ")" >
+|   < BRACKET_IN: "[" >
+|   < BRACKET_OUT: "]" >
+|   < COMMA: "," >
+|   < SEMICOLON: ";" >
+|   < PERIOD: "." >
+}
+
+TOKEN: 
+{
+
+
+   < INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
+|   < DECIMAL_LIT: "0" | ["1"-"9"] (["0"-"9"])* | (["1"-"9"] (["0"-"9"])*) ("_"  (<DECIMAL_DIGITS>)*)?  > 
+|   < BINARY_LIT: "0" ("b" | "B") (["_"])? <BINARY_DIGITS>>
+|   < OCTAL_LIT: "0"  ("o" | "O")? (["_"])? <OCTAL_DIGITS>>
+|   < FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
+|   < HEXA_LIT: "0" ("x" | "X") (["_"])? <HEXA_DIGITS>>
+|   < IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
+
 
 /*
-|   < DECIMAL_LIT: "0" | (["1"-"9"]) ["_"] <DECIMAL_DIGITS>> 
-|   < BINARY_LIT: "0" ("b" | "B") ["_"]<BINARY_DIGITS>>
-|   < OCTAL_LIT: "0"  ("o" | "O") ["_"]<OCTAL_DIGITS>>
-|   < FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
-|   < HEXA_LIT: "0" ("x" | "X") ["_"]<HEXA_DIGITS>>
-*/
-
-|   < INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
 |   < DECIMAL_LIT: ["1"-"9"](["0"-"9"])* | "0" >
-|   < BINARY_LIT: "0" ("b" | "B") ("0" | "1")+>
+|   < BINARY_LIT: "0" ("b" | "B") ("0" | "1")+ >
 |   < OCTAL_LIT: "0"("o" | "O")(["0"-"7"])+ >
 |   < HEXA_LIT: "0" ("x" | "X") (["0"-"9", "a"-"f", "A"-"F"])+ >
-
 |   < FLOAT_LIT: (["0"-"9"])+ "." (["0"-"9"])* ( ("e" | "E") ("+" | "-")?(["0"-"9"])+)? | (["0"-"9"])+ ("e" | "E") ("+" | "-")? (["0"-"9"])+> 
- 
+ */
 
-|   < IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
+
+
+
 |   < IDENTIFIER: <LETTER> (<LETTER> | <DIGIT> | "_")* >
-|   < NUM_DEC: <DIGIT>"+" ("." <DIGIT>)? > 
-|   < OPERATOR: "==" | "!=" | "<=" | ">=" | "&&" | "||" | "<<" | ">>" | "&^" | "+=" | "-=" | "*=" | "/=" | "%=" | "&=" | "|=" | "^=" | "<<=" | ">>=" | "&^=" | "<-" |"++" | "--" | ":=" | "..." | ":" | "+" | "-" | "*" | "/" | "%" | "&" | "|" | "^" | "!" | "<" | ">" | "=" >
-|   < DELIMITER: "{" | "}" | "(" | ")" | "[" | "]" | "," | ";" | "." >
 |   < RUNE_LIT: "'" ( <UNICODE_VALUE> | <BYTE_VALUE> ) "'"> 
 |   < CHARACTER_LITERAL: "'" ( <ESCAPED_CHAR> | ~["'", "\\"] ) "'" >
 |   < STRING_LITERAL: "\"" (~["\\", "\""] | <ESCAPED_CHAR>)* "\"" >
@@ -128,28 +406,34 @@ TOKEN :
     < #DIGIT: ["0"-"9"] >|
     < #BINARY: ["0"-"1"]>|
     < #OCTAL: ["0"-"7"]>|
-    < #HEXA: <DIGIT> | ["A"-"F"] | ["a"-"f"]> |
-    < #DECIMAL_DIGITS: (<DIGIT>)+ ("{" ["_"] (<DIGIT>)+ "}")*>|
-    < #BINARY_DIGITS: (<BINARY>)+ ("{" ["_"] (<BINARY>)+ "}")*>|
-    < #OCTAL_DIGITS: (<OCTAL>)+ ("{" ["_"] (<OCTAL>)+ "}")*>|
-    < #HEXA_DIGITS: (<HEXA>)+ ("{" ["_"] (<HEXA>)+ "}")*> |
     < #LETTER: ["a"-"z", "A"-"Z", "_"] > |
-    < #DECIMAL_EXPONENT: ("e" | "E") ("+" | "-") <DECIMAL_DIGITS>> |
-    < #HEXA_MANTISSA: ["_"]<HEXA_DIGITS> "." "[" <HEXA_DIGITS>"]" | ["_"]<HEXA_DIGITS> | "."<HEXA_DIGITS>> |
-    < #HEXA_EXPONENT: ("p" | "P") ("+" | "-")<DECIMAL_DIGITS>> |
+    < #HEXA: <DIGIT> | ["A"-"F"] | ["a"-"f"]> |
+
+
+    < #DECIMAL_DIGITS: <DIGIT>((["_"])? <DIGIT>)* > |
+    < #BINARY_DIGITS: <BINARY> ((["_"])? <BINARY>)* > |
+    < #OCTAL_DIGITS: <OCTAL> ((["_"])? <OCTAL>)* > |
+    < #HEXA_DIGITS: <HEXA> ((["_"])? <HEXA>)* > |
+
+
+    < #DECIMAL_EXPONENT: ("e" | "E") ("+" | "-")? (<DECIMAL_DIGITS>)*> |
+    < #HEXA_MANTISSA: ("_")? <HEXA_DIGITS> "." (<HEXA_DIGITS>)? | ("_")?<HEXA_DIGITS> | "."<HEXA_DIGITS>> |
+    < #HEXA_EXPONENT: ("p" | "P") ("+" | "-")? <DECIMAL_DIGITS>> |
+    < #DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"." (<DECIMAL_DIGITS>)? (<DECIMAL_EXPONENT>)? | <DECIMAL_DIGITS><DECIMAL_EXPONENT> | "."(<DECIMAL_DIGITS>)* (<DECIMAL_EXPONENT>)?> |
+    < #HEXA_FLOAT_LIT: "0" ("x" | "X") <HEXA_MANTISSA><HEXA_EXPONENT>> |
+
+    
     < #UNICODE_VALUE: <UNICODE_CHAR> | <LITLE_U_VALUE> | <BIG_U_VALUE> | <ESCAPED_CHAR>>  |
     < #BYTE_VALUE: <OCTAL_BYTE_VALUE> | <HEX_BYTE_VALUE>> |
-    < #OCTAL_BYTE_VALUE: "\\" <OCTAL> <OCTAL> <OCTAL>> |
+    < #OCTAL_BYTE_VALUE: "\\" <OCTAL><OCTAL> <OCTAL> > |
     < #HEX_BYTE_VALUE: "\\" "x" <HEXA> <HEXA>> |
     < #LITLE_U_VALUE: "\\" "u" <HEXA> <HEXA> <HEXA> <HEXA>>  |
     < #BIG_U_VALUE: "\\" "U" <HEXA> <HEXA> <HEXA> <HEXA> <HEXA> <HEXA> <HEXA> <HEXA>>  |
     < #UNICODE_LETTER_CODEPOINT: ["\u0041"-"\u005A", "\u0061"-"\u007A"]> |
     < #UNICODE_DIGIT_CODEPOINT: ["\u0030"-"\u0039"]> |
     < #ESCAPED_CHAR: "\\" ("a" | "b" | "f" | "n" | "r" | "t" | "v" | "\\" | "'" | "\"") > |
-    < #INTERPRETED_STRING_LIT: "\"" "{" <UNICODE_VALUE> | <BYTE_VALUE> "}" "\""> |
-    < #RAW_STRING_LIT: "'" "{" <UNICODE_CHAR> | "\n" "}" "'"> |
-    < #DECIMAL_FLOAT_LIT: <DECIMAL_DIGITS>"." "[" <DECIMAL_DIGITS> "]" "[" <DECIMAL_EXPONENT> "]" | <DECIMAL_DIGITS><DECIMAL_EXPONENT>| "."<DECIMAL_DIGITS> "[" <DECIMAL_EXPONENT> "]"> |
-    < #HEXA_FLOAT_LIT: "0" ("x" | "X") <HEXA_MANTISSA><HEXA_EXPONENT>>
+    < #INTERPRETED_STRING_LIT: "\"" (<UNICODE_VALUE> | <BYTE_VALUE>)+ "\""> |
+    < #RAW_STRING_LIT: "'" (<UNICODE_CHAR> | "\n")+ "'"> 
 }
 
 /*
