@@ -64,8 +64,8 @@ public class Go {
                 case GoConstants.RANGE:
                     System.out.println("RANGE " + token.image);
                     break;
-                case GoConstants.TYPE:
-                    System.out.println("TYPE " + token.image);
+                case GoConstants.TYPE_LABEL:
+                    System.out.println("TYPE_LABEL " + token.image);
                     break;
                 case GoConstants.CONTINUE:
                     System.out.println("CONTINUE " + token.image);
@@ -142,8 +142,8 @@ public class Go {
                 case GoConstants.EXPONENTI_EQUAL:
                     System.out.println("EXPONENTI_EQUAL " + token.image);
                     break;
-                case GoConstants.CHANNEL:
-                    System.out.println("CHANNEL " + token.image);
+                case GoConstants.CHANNEL_OPERATOR:
+                    System.out.println("CHANNEL_OPERATOR " + token.image);
                     break;
                 case GoConstants.INCREMENT:
                     System.out.println("INCREMENT " + token.image);
@@ -219,6 +219,9 @@ public class Go {
                     break;
                 case GoConstants.PERIOD:
                     System.out.println("PERIOD " + token.image);
+                    break; 
+                case GoConstants.TILDE:
+                    System.out.println("TILDE " + token.image);
                     break;               
                 case GoConstants.INT_LIT:
                     System.out.println("INT_LIT " + token.image);
@@ -305,7 +308,7 @@ TOKEN :
 |   < FALLTHROUGH: "fallthrough" >
 |   < IF: "if" >
 |   < RANGE: "range" >
-|   < TYPE: "type" >
+|   < TYPE_LABEL: "type" >
 |   < CONTINUE: "continue" >
 |   < FOR: "for" >
 |   < IMPORT: "import" >
@@ -336,7 +339,7 @@ TOKEN:
 |   < LEFT_SHIFT_EQUAL: "<<=" >
 |   < RIGHT_SHIFT_EQUAL: ">>=" >
 |   < AND_NOT_EQUAL: "&^=" >
-|   < CHANNEL: "<-" >
+|   < CHANNEL_OPERATOR: "<-" >
 |   < INCREMENT: "++" >
 |   < DECREMENT: "--" >
 |   < OPERATOR_DECLARATION: ":=" >
@@ -363,6 +366,7 @@ TOKEN:
 |   < COMMA: "," >
 |   < SEMICOLON: ";" >
 |   < PERIOD: "." >
+|   < TILDE: "~" >
 }
 
 TOKEN: 
