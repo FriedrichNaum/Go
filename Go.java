@@ -62,8 +62,8 @@ public class Go implements GoConstants {
                 case GoConstants.RANGE:
                     System.out.println("RANGE " + token.image);
                     break;
-                case GoConstants.TYPE:
-                    System.out.println("TYPE " + token.image);
+                case GoConstants.TYPE_LABEL:
+                    System.out.println("TYPE_LABEL " + token.image);
                     break;
                 case GoConstants.CONTINUE:
                     System.out.println("CONTINUE " + token.image);
@@ -140,8 +140,8 @@ public class Go implements GoConstants {
                 case GoConstants.EXPONENTI_EQUAL:
                     System.out.println("EXPONENTI_EQUAL " + token.image);
                     break;
-                case GoConstants.CHANNEL:
-                    System.out.println("CHANNEL " + token.image);
+                case GoConstants.CHANNEL_OPERATOR:
+                    System.out.println("CHANNEL_OPERATOR " + token.image);
                     break;
                 case GoConstants.INCREMENT:
                     System.out.println("INCREMENT " + token.image);
@@ -217,6 +217,9 @@ public class Go implements GoConstants {
                     break;
                 case GoConstants.PERIOD:
                     System.out.println("PERIOD " + token.image);
+                    break;
+                case GoConstants.TILDE:
+                    System.out.println("TILDE " + token.image);
                     break;
                 case GoConstants.INT_LIT:
                     System.out.println("INT_LIT " + token.image);
@@ -428,14 +431,14 @@ public class Go implements GoConstants {
       return (jj_ntk = jj_nt.kind);
   }
 
-  static private java.util.List jj_expentries = new java.util.ArrayList();
+  static private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
   static private int[] jj_expentry;
   static private int jj_kind = -1;
 
   /** Generate ParseException. */
   static public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[118];
+    boolean[] la1tokens = new boolean[119];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -458,7 +461,7 @@ public class Go implements GoConstants {
         }
       }
     }
-    for (int i = 0; i < 118; i++) {
+    for (int i = 0; i < 119; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;
@@ -467,7 +470,7 @@ public class Go implements GoConstants {
     }
     int[][] exptokseq = new int[jj_expentries.size()][];
     for (int i = 0; i < jj_expentries.size(); i++) {
-      exptokseq[i] = (int[])jj_expentries.get(i);
+      exptokseq[i] = jj_expentries.get(i);
     }
     return new ParseException(token, exptokseq, tokenImage);
   }
