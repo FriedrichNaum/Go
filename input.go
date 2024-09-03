@@ -1,11 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
-// Codigo
-
 type Ponto struct {
 	x int
 	y int
@@ -24,7 +16,7 @@ func funcao(v []Ponto, n int) float64 {
 			res -= res*2.e-2 + funcao(v, n-1)*temp
 		} else {
 			res += res*0.3e3 + funcao(v, n-2)*temp
-			fmt.Println("Estranho, né?")
+			println("Estranho, né?")
 		}
 	}
 	return res
@@ -33,5 +25,5 @@ func funcao(v []Ponto, n int) float64 {
 func main() {
 	pontos := []Ponto{{x: 1, y: 2}, {x: 3, y: 4}, {x: 5, y: 6}}
 	resultado := funcao(pontos, len(pontos))
-	fmt.Println("Resultado:", resultado)
+	println("Resultado:", resultado)
 }
