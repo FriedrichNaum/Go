@@ -1,4 +1,3 @@
-
 PARSER_BEGIN(Go)
 
 public class Go {
@@ -256,6 +255,9 @@ public class Go {
                 case GoConstants.MULTI_LINE_COMMENT:
                     System.out.println("MULTI_LINE_COMMENT " + token.image);
                     break;
+                case GoConstants.BOOL:
+                    System.out.println("BOOL " + token.image);
+                    break;
                     /*
                 case GoConstants.WHITESPACE:
                     // Ignore whitespace tokens
@@ -372,8 +374,8 @@ TOKEN:
 TOKEN: 
 {
 
-
-   < INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
+   <BOOL: "true" | "false" >
+|   < INT_LIT: <DECIMAL_LIT> | <BINARY_LIT> | <OCTAL_LIT> | <HEXA_LIT>>
 |   < DECIMAL_LIT: "0" | ["1"-"9"] (["0"-"9"])* | (["1"-"9"] (["0"-"9"])*) ("_"  (<DECIMAL_DIGITS>)*)?  > 
 |   < BINARY_LIT: "0" ("b" | "B") (["_"])? <BINARY_DIGITS>>
 |   < OCTAL_LIT: "0"  ("o" | "O")? (["_"])? <OCTAL_DIGITS>>

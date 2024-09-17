@@ -27,3 +27,35 @@ func main() {
 	resultado := funcao(pontos, len(pontos))
 	println("Resultado:", resultado)
 }
+
+func main() {
+	// Definindo duas variáveis
+	a := 10 + 15 * 7
+	b := ( 20 / 5 ) % 5
+	c := 13
+	// Somando as variáveis
+	soma := a + b
+	
+	if((a > b) || (c >= b))
+	{
+		a := 5
+	}
+	else
+	{
+		b := 6
+	}
+	
+	if((a <= b) && (c != 6))
+	{
+		c := 5
+	}
+	if(a == c)
+	{
+		a := c
+	}
+	
+	for( i := 1; )
+	// Imprimindo o resultado
+	println("A soma de", a, "e", b, "é:", soma)
+}
+
