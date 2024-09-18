@@ -159,81 +159,83 @@ public interface GoConstants {
   /** RegularExpression Id. */
   int TILDE = 80;
   /** RegularExpression Id. */
-  int INT_LIT = 81;
+  int BOOL = 81;
   /** RegularExpression Id. */
-  int DECIMAL_LIT = 82;
+  int INT_LIT = 82;
   /** RegularExpression Id. */
-  int BINARY_LIT = 83;
+  int DECIMAL_LIT = 83;
   /** RegularExpression Id. */
-  int OCTAL_LIT = 84;
+  int BINARY_LIT = 84;
   /** RegularExpression Id. */
-  int FLOAT_LIT = 85;
+  int OCTAL_LIT = 85;
   /** RegularExpression Id. */
-  int HEXA_LIT = 86;
+  int FLOAT_LIT = 86;
   /** RegularExpression Id. */
-  int IMAGINARY_LIT = 87;
+  int HEXA_LIT = 87;
   /** RegularExpression Id. */
-  int IDENTIFIER = 88;
+  int IMAGINARY_LIT = 88;
   /** RegularExpression Id. */
-  int RUNE_LIT = 89;
+  int IDENTIFIER = 89;
   /** RegularExpression Id. */
-  int CHARACTER_LITERAL = 90;
+  int RUNE_LIT = 90;
   /** RegularExpression Id. */
-  int STRING_LITERAL = 91;
+  int CHARACTER_LITERAL = 91;
   /** RegularExpression Id. */
-  int STRINGLIT = 92;
+  int STRING_LITERAL = 92;
   /** RegularExpression Id. */
-  int UNICODE_CHAR = 93;
+  int STRINGLIT = 93;
   /** RegularExpression Id. */
-  int DIGIT = 94;
+  int UNICODE_CHAR = 94;
   /** RegularExpression Id. */
-  int BINARY = 95;
+  int DIGIT = 95;
   /** RegularExpression Id. */
-  int OCTAL = 96;
+  int BINARY = 96;
   /** RegularExpression Id. */
-  int LETTER = 97;
+  int OCTAL = 97;
   /** RegularExpression Id. */
-  int HEXA = 98;
+  int LETTER = 98;
   /** RegularExpression Id. */
-  int DECIMAL_DIGITS = 99;
+  int HEXA = 99;
   /** RegularExpression Id. */
-  int BINARY_DIGITS = 100;
+  int DECIMAL_DIGITS = 100;
   /** RegularExpression Id. */
-  int OCTAL_DIGITS = 101;
+  int BINARY_DIGITS = 101;
   /** RegularExpression Id. */
-  int HEXA_DIGITS = 102;
+  int OCTAL_DIGITS = 102;
   /** RegularExpression Id. */
-  int DECIMAL_EXPONENT = 103;
+  int HEXA_DIGITS = 103;
   /** RegularExpression Id. */
-  int HEXA_MANTISSA = 104;
+  int DECIMAL_EXPONENT = 104;
   /** RegularExpression Id. */
-  int HEXA_EXPONENT = 105;
+  int HEXA_MANTISSA = 105;
   /** RegularExpression Id. */
-  int DECIMAL_FLOAT_LIT = 106;
+  int HEXA_EXPONENT = 106;
   /** RegularExpression Id. */
-  int HEXA_FLOAT_LIT = 107;
+  int DECIMAL_FLOAT_LIT = 107;
   /** RegularExpression Id. */
-  int UNICODE_VALUE = 108;
+  int HEXA_FLOAT_LIT = 108;
   /** RegularExpression Id. */
-  int BYTE_VALUE = 109;
+  int UNICODE_VALUE = 109;
   /** RegularExpression Id. */
-  int OCTAL_BYTE_VALUE = 110;
+  int BYTE_VALUE = 110;
   /** RegularExpression Id. */
-  int HEX_BYTE_VALUE = 111;
+  int OCTAL_BYTE_VALUE = 111;
   /** RegularExpression Id. */
-  int LITLE_U_VALUE = 112;
+  int HEX_BYTE_VALUE = 112;
   /** RegularExpression Id. */
-  int BIG_U_VALUE = 113;
+  int LITLE_U_VALUE = 113;
   /** RegularExpression Id. */
-  int UNICODE_LETTER_CODEPOINT = 114;
+  int BIG_U_VALUE = 114;
   /** RegularExpression Id. */
-  int UNICODE_DIGIT_CODEPOINT = 115;
+  int UNICODE_LETTER_CODEPOINT = 115;
   /** RegularExpression Id. */
-  int ESCAPED_CHAR = 116;
+  int UNICODE_DIGIT_CODEPOINT = 116;
   /** RegularExpression Id. */
-  int INTERPRETED_STRING_LIT = 117;
+  int ESCAPED_CHAR = 117;
   /** RegularExpression Id. */
-  int RAW_STRING_LIT = 118;
+  int INTERPRETED_STRING_LIT = 118;
+  /** RegularExpression Id. */
+  int RAW_STRING_LIT = 119;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -321,6 +323,7 @@ public interface GoConstants {
     "\";\"",
     "\".\"",
     "\"~\"",
+    "<BOOL>",
     "<INT_LIT>",
     "<DECIMAL_LIT>",
     "<BINARY_LIT>",

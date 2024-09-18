@@ -382,19 +382,6 @@ TOKEN:
 |   < FLOAT_LIT: <DECIMAL_FLOAT_LIT> | <HEXA_FLOAT_LIT>>
 |   < HEXA_LIT: "0" ("x" | "X") (["_"])? <HEXA_DIGITS>>
 |   < IMAGINARY_LIT: (<DECIMAL_DIGITS> | <INT_LIT> | <FLOAT_LIT>)"i">
-
-
-/*
-|   < DECIMAL_LIT: ["1"-"9"](["0"-"9"])* | "0" >
-|   < BINARY_LIT: "0" ("b" | "B") ("0" | "1")+ >
-|   < OCTAL_LIT: "0"("o" | "O")(["0"-"7"])+ >
-|   < HEXA_LIT: "0" ("x" | "X") (["0"-"9", "a"-"f", "A"-"F"])+ >
-|   < FLOAT_LIT: (["0"-"9"])+ "." (["0"-"9"])* ( ("e" | "E") ("+" | "-")?(["0"-"9"])+)? | (["0"-"9"])+ ("e" | "E") ("+" | "-")? (["0"-"9"])+> 
- */
-
-
-
-
 |   < IDENTIFIER: <LETTER> (<LETTER> | <DIGIT> | "_")* >
 |   < RUNE_LIT: "'" ( <UNICODE_VALUE> | <BYTE_VALUE> ) "'"> 
 |   < CHARACTER_LITERAL: "'" ( <ESCAPED_CHAR> | ~["'", "\\"] ) "'" >
@@ -447,4 +434,3 @@ TOKEN :
     javac Go.javac
     java Go < input.go
 */
- 

@@ -1,54 +1,29 @@
-func usoDeArray() {
-	arr := [5]int{1, 2, 3, 4, 5}
-	for i < len(arr){
-		i := 1 + arr[i]
-		i := i + 1
+func usoArray(nome int, nommbre bool){
+	array := [5]int{1,2,3,4};
+	for i < lenght(array){
+		i := i + 1;
 	}
-	return i
+
+	return i;
+
 }
-
-func main() {
-	a := 15
-	b := 5
+func main(){
 	
-	soma := a + b * a - b
-	subtracao := a - b
-	multiplicacao := a * b
-	divisao := a / b
-	modulo := a % b
+	a := 10 + 15 * 7;
+	b := 20 / 5;
+	c := b % 2;
 
-	// Controle de fluxo
-	if a >= 10 {
-		a:=10
-	} else if a == 10 {
-		b := 5
-	} else{
-		c := 10
+	soma := a + b;
+	diferenca := a - b;
+	
+	if a < 5 && b > usoArray(){
+		
+	}else if a == 5 || a >= 5
+	{
+		soma := a + b;
 	}
-	if b >= 5 {
-		c := 10
+	else{
+		diferenca := a - usoArray(25, true);	
 	}
-	if b != 6 {
-		c := 10
-	}
-	if a <= 5  {
-		c := 10
-	}
-	if (a <= 5) && (b > 6) {
-		c := 10
-	}
-	if (a <= 5) || (b > (usoDeArray()+1) ) {
-		c := 10
-	}
-	if !(a <= 5) || (b > 6) {
-		c := 10
-	}
-
-	i := 0
-	for i < 5 {
-		i:= i + 1
-	}
-
-	usoDeArray()
 }
 
